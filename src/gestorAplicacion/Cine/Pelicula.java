@@ -46,7 +46,7 @@ public class Pelicula {
         return duracion;
     }
 
-    public void setDuracion(String name) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 
