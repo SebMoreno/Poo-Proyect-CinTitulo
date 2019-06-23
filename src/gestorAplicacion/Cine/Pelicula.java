@@ -8,7 +8,6 @@ public class Pelicula {
     private String titulo;
     private String duracion;
     private String idioma;
-    //caremonda
     private int precio;
 
     public String getHora() {
