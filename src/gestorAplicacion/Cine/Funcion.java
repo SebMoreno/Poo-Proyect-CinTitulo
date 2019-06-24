@@ -5,6 +5,7 @@ public class Funcion {
     private Sala sala;
     private final Silla[][] sillas = sala.sillas;
     private String hora;
+    private int precio;
     private Short sillasOcupadas;
     private Pelicula pelicula;
 
@@ -52,6 +53,14 @@ public class Funcion {
 
     public Silla[][] getSillas() {
         return sillas;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     public Short getSillasOcupadas() {

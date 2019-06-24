@@ -3,7 +3,7 @@ package gestorAplicacion.Cine;
 public class Sala {
 
     private final int precio;
-    private final Character tipo;
+    private final char tipo;
     private final Short capacidad;
     final Silla[][] sillas;
 
