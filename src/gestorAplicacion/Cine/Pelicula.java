@@ -1,7 +1,6 @@
 package gestorAplicacion.Cine;
 
 import java.util.ArrayList;
-import gestorAplicacion.Cine.Funcion;
 
 public class Pelicula {
 
@@ -10,7 +9,6 @@ public class Pelicula {
     private final String titulo;
     private final String duracion;
     private final String idioma;
-    private ArrayList<Funcion> funciones = new ArrayList<>();
 
     public Pelicula(String genero, String clasificacion, String titulo, String duracion, String idioma) {
         this.genero = genero;
@@ -19,6 +17,7 @@ public class Pelicula {
         this.duracion = duracion;
         this.idioma = idioma;
     }
+
     public String getGenero() {
         return genero;
     }
@@ -39,11 +38,4 @@ public class Pelicula {
         return idioma;
     }
 
-    public ArrayList<Funcion> getFunciones() {
-        return funciones;
-    }
-
-    public void setFunciones(ArrayList<Funcion> funciones) {
-        this.funciones = funciones;
-    }
 }

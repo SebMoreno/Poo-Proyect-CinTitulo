@@ -2,17 +2,14 @@ package gestorAplicacion.Cine;
 
 public class Silla {
 
-    private final byte[] posicion = new byte[2];
     private final boolean vibrosound;
     private final boolean preferencial;
     private final Short incremento;
     private final Sala sala;
     private boolean ocupada;
 
-    public Silla(Sala sala, boolean vibrosound, boolean preferencial, byte posicionX, byte posicionY) {
+    public Silla(Sala sala, boolean vibrosound, boolean preferencial) {
         this.sala = sala;
-        this.posicion[0] = posicion[posicionX];
-        this.posicion[1] = posicion[posicionY];
         this.vibrosound = vibrosound;
         this.preferencial = preferencial;
         if (vibrosound && preferencial) {
@@ -26,13 +23,9 @@ public class Silla {
         }
     }
 
-    public Silla(Sala sala, boolean vibrosound, boolean preferencial, byte posicionX, byte posicionY, boolean ocupada) {
-        this(sala, vibrosound, preferencial, posicionX, posicionY);
+    public Silla(Sala sala, boolean vibrosound, boolean preferencial, boolean ocupada) {
+        this(sala, vibrosound, preferencial);
         this.ocupada = ocupada;
-    }
-
-    public byte[] getPosicion() {
-        return posicion;
     }
 
     public boolean isVibrosound() {
