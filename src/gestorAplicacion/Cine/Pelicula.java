@@ -1,7 +1,7 @@
 package gestorAplicacion.Cine;
 
 public class Pelicula {
-
+    
     private String hora;
     private String genero;
     private String clasificacion;
