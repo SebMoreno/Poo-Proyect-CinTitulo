@@ -1,4 +1,6 @@
 package gestorAplicacion.usuario;
+import gestorAplicacion.cine.Pelicula;
+
 
 public class Administrator {
     private long cedula;
