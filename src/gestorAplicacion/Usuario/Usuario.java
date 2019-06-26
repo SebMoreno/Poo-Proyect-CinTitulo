@@ -1,6 +1,9 @@
 package gestorAplicacion.Usuario;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.Serializable;
+import java.io.IOException;
 import java.util.*;
 
 public class Usuario implements Serializable {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
@@ -69,7 +72,13 @@ public class Usuario implements Serializable {//esta sera mi super clase por eso
         clave = entrada.next();
         System.out.println("Ingrese saldo");
         saldo = entrada.nextInt();
-
+        
+        try(BufferedWriter  bw=new BufferedWriter(new FileWriter("c:/Users/Usuario/Desktop/fichero1.txt"));){
+            
+        }
+        catch(IOException e){
+            System.out.println("error al agregar usuario");
+        }
         return "Registro exitoso";
 
     }
