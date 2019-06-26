@@ -1,4 +1,4 @@
-package gestorAplicacion.Usuario;
+package gestorAplicacion.usuario;
 
 public class Cuenta {
 

@@ -1,5 +1,7 @@
-package gestorAplicacion.Usuario;
+package gestorAplicacion.usuario;
 
+import static baseDeDatos.Registro.readTxt;
+import static baseDeDatos.Registro.writeTxt;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -15,7 +17,7 @@ public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede
     private String email;
     private String clave;
     private int saldo;
-    private static HashMap<String, String[]> usersList = new HashMap<>();
+    public static HashMap<String, String[]> usersList = new HashMap<>();
 
     static {
         readTxt();
@@ -50,33 +52,6 @@ public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede
         this.saldo = saldo;
     }//lo que el usuario registrado debe tener
 
-    public void writeTxt() {
-        Scanner scan = new Scanner(System.in);
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("../../temp/fichero1.txt"));) {
-            for (Map.Entry<String, String[]> entry : usersList.entrySet()) {
-                bw.write(entry.getKey() + " " + entry.getValue()[0] + " " + entry.getValue()[1]);
-                bw.newLine();
-            }
-        } catch (IOException e) {
-            System.out.println("error de lectura de archivo");
-        }
-
-    }
-
-    public static void readTxt() {
-        try (BufferedReader br = new BufferedReader(new FileReader("../../temp/fichero1.txt"));) {
-            String line;
-            do {
-                line = br.readLine();
-                String[] datos = line.split(" ");
-                String[] aux = {datos[1], datos[2]};
-                usersList.put(datos[0], aux);
-            } while (line != null);
-        } catch (IOException e) {
-            System.out.println("error de lectura de archivo");
-        }
-
-    }
 
     public String getnombre() {
         return nombre;

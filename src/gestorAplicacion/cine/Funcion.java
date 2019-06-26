@@ -1,4 +1,4 @@
-package gestorAplicacion.Cine;
+package gestorAplicacion.cine;
 
 public class Funcion {
 

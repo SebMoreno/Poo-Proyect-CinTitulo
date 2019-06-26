@@ -1,6 +1,6 @@
-package gestorAplicacion.Cine;
+package gestorAplicacion.cine;
 
-import gestorAplicacion.Usuario.Usuario;
+import gestorAplicacion.usuario.Usuario;
 
 public class Boleta {
     private final Usuario dueño;
