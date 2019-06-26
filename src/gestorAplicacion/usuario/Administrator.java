@@ -1,6 +1,5 @@
 package gestorAplicacion.usuario;
-import gestorAplicacion.cine.Pelicula;
-
+import gestorAplicacion.cine.Funcion;
 
 public class Administrator {
     private long cedula;
@@ -42,5 +41,8 @@ public class Administrator {
     }
     void set_cargo(String cargo){
         this.cargo=cargo;
+    }
+    void edit_movie(){
+        
     }
 }
