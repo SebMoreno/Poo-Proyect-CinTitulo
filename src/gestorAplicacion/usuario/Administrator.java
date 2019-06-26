@@ -20,11 +20,25 @@ public class Administrator {
     String get_email(){
         return email;
     }
-    String usuario(){
+    String get_usuario(){
         return usuario;
     }
-    String cargo(){
+    String get_cargo(){
         return cargo;
     }
-    
+    void set_cc(long cedula){
+        this.cedula=cedula;
+    }
+    void set_nombre(String nombre){
+        this.nombre=nombre;
+    }
+    void set_telefono(int telefono){
+        this.telefono=telefono;
+    }
+    void set_email(String email){
+        this.email=email;
+    }
+    void set_cargo(String cargo){
+        this.cargo=cargo;
+    }
 }
