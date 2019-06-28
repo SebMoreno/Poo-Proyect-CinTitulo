@@ -42,7 +42,4 @@ public class Administrator {
     void set_cargo(String cargo){
         this.cargo=cargo;
     }
-    void edit_movie(){
-        
-    }
 }

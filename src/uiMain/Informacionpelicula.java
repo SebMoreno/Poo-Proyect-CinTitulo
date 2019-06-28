@@ -2,7 +2,7 @@ package uiMain;
 
 import java.util.*;
 
-public class Informacionpelicula extends Opciondemenu {
+public class Informacionpelicula extends OpcionDeMenu {
 
     Scanner entrada = new Scanner(System.in);
 
