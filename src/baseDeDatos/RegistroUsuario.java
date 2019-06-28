@@ -10,9 +10,9 @@ import java.util.Map;
 public class RegistroUsuario {
 
     public static void writeTxt() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("../../temp/usuarios.txt"));) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/temp/usuarios.txt"));) {
             for (Map.Entry<String, String[]> entry : gestorAplicacion.usuario.Usuario.getUsersList().entrySet()) {
-                bw.write(entry.getKey() + " " + entry.getValue()[0] + " " + entry.getValue()[1] + " " + entry.getValue()[2]+ " " + entry.getValue()[3]);
+                bw.write(entry.getKey() + " " + entry.getValue()[0] + " " + entry.getValue()[1] + " " + entry.getValue()[2]+ " " + entry.getValue()[3] + " " + entry.getValue()[4]);
                 bw.newLine();
             }
         } catch (IOException e) {
@@ -22,12 +22,12 @@ public class RegistroUsuario {
     }
 
     public static void readTxt() {
-        try (BufferedReader br = new BufferedReader(new FileReader("../../temp/usuarios.txt"));) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/temp/usuarios.txt"));) {
             String line;
             do {
                 line = br.readLine();
                 String[] datos = line.split(" ");
-                String[] aux = {datos[1], datos[2], datos[3], datos[4]};
+                String[] aux = {datos[1], datos[2], datos[3], datos[4], datos[5]};
                 gestorAplicacion.usuario.Usuario.getUsersList().put(datos[0], aux);
             } while (line != null);
         } catch (IOException e) {

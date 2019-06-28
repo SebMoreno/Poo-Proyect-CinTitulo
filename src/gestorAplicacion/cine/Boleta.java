@@ -1,24 +1,26 @@
 package gestorAplicacion.cine;
 
-import gestorAplicacion.usuario.Usuario;
+import gestorAplicacion.usuario.Cuenta;
 
 public class Boleta {
-    private final Usuario dueño;
+
+    private final Cuenta dueño;
     private final Funcion funcion;
-    private String estado = "No pagada";
+    private String estado;
 
-    public Boleta(Usuario dueño, Funcion funcion) {
-        this.dueño = dueño;
-        this.funcion = funcion;
+    protected Boleta(Cuenta dueño, Funcion funcion) {
+        this(dueño, funcion, "No_pagada");
     }
+    
 
-    public Boleta(Usuario dueño, Funcion funcion, String estado) {
+    protected Boleta(Cuenta dueño, Funcion funcion, String estado) {
         this.dueño = dueño;
         this.funcion = funcion;
         this.estado = estado;
+        baseDeDatos.RegistroBoletas.readTxt();
     }
 
-    public Usuario getDueño() {
+    public Cuenta getDueño() {
         return dueño;
     }
 
@@ -34,6 +36,4 @@ public class Boleta {
         this.estado = estado;
     }
 
-    
-    
 }

@@ -1,6 +1,6 @@
 package gestorAplicacion.usuario;
 
-import java.util.*;
+import java.util.HashMap;
 
 public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
 
@@ -21,24 +21,24 @@ public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede
         this(usuario, clave, rol, "NN");
     }
 
-    protected Usuario(String usuario, String clave, String rol, String nombre) {
+    public Usuario(String usuario, String clave, String rol, String nombre) {
         this(usuario, clave, rol, nombre, "NE");
     }
 
-    protected Usuario(String usuario, String clave, String rol, String nombre, String email) {
-        this.usuario = usuario;
+    public Usuario(String usuario, String clave, String rol, String nombre, String email) {
         this.clave = clave;
         this.rol = rol;
         this.nombre = nombre;
         this.email = email;
-        this.cuenta = new Cuenta(this);
-        if (!usersList.containsKey(usuario)) {
-            String[] aux = {clave, rol, nombre, email};
-            usersList.put(usuario, aux);
-            baseDeDatos.RegistroUsuario.writeTxt();
-        } else {
-            System.out.println("usuario ya usado");
+        while (usersList.containsKey(usuario)) {
+            System.out.println("usuario ya usado");//Programar para mostrar error y perdir nuevo usuario
+            //this.usuario = nueva entrada del usuario
         }
+        String[] aux = {clave, rol, nombre, email};
+        usersList.put(usuario, aux);
+        baseDeDatos.RegistroUsuario.writeTxt();
+        this.usuario = usuario; // Quitar esta linea al acabar con while del menu
+        this.cuenta = new Cuenta(this);
     }
 
     public String getUsuario() {
