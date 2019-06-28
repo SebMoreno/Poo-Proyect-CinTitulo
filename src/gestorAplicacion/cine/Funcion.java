@@ -8,23 +8,15 @@ public class Funcion {
     private int precio;
     private Short sillasOcupadas;
     private Pelicula pelicula;
-
-    public Funcion() {
-    }
-
-    public Funcion(Sala sala) {
-        this.sala = sala;
-    }
-
-    public Funcion(Sala sala, String hora) {
-        this.sala = sala;
-        this.hora = hora;
-    }
+    private  int idFuncion;
+    private static int numFunciones;
 
     public Funcion(Sala sala, String hora, Pelicula pelicula) {
         this.sala = sala;
         this.hora = hora;
         this.pelicula = pelicula;
+        numFunciones++;
+        idFuncion = numFunciones;
     }
 
     public Sala getSala() {
