@@ -1,6 +1,7 @@
 package gestorAplicacion.cine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Pelicula {
 
@@ -9,6 +10,7 @@ public class Pelicula {
     private final String titulo;
     private final String duracion;
     private final String idioma;
+    private static HashMap<String, String[]> moviesList = new HashMap<>();
 
     public Pelicula(String genero, String clasificacion, String titulo, String duracion, String idioma) {
         this.genero = genero;
@@ -36,6 +38,10 @@ public class Pelicula {
 
     public String getIdioma() {
         return idioma;
+    }
+    
+    public static HashMap<String, String[]> getMoviesList() {
+        return moviesList;
     }
 
 }
