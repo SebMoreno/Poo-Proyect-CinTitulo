@@ -17,7 +17,7 @@ public class Boleta {
         this.dueño = dueño;
         this.funcion = funcion;
         this.estado = estado;
-        baseDeDatos.RegistroBoletas.readTxt();
+        //baseDeDatos.RegistroBoletas.readTxt();
     }
 
     public Cuenta getDueño() {

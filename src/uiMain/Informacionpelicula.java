@@ -8,7 +8,7 @@ public class Informacionpelicula extends OpcionDeMenu {
 
     @Override
     public void ejecutar() {
-
+        
     }
 
     @Override
