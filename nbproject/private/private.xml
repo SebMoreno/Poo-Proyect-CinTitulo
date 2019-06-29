@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/uiMain/OpcionDeMenu.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/uiMain/Informacionpelicula.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/baseDeDatos/RegistroBoletas.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/gestorAplicacion/cine/Pelicula.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/uiMain/MenuDeConsola.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/baseDeDatos/RegistroPelicula.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/baseDeDatos/RegistroUsuario.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/gestorAplicacion/cine/Boleta.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/baseDeDatos/RegistroCuenta.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/gestorAplicacion/usuario/Usuario.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/Poo-Proyect-CinTitulo/src/uiMain/InformacionCuenta.java</file>
+        </group>
     </open-files>
 </project-private>

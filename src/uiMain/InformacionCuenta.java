@@ -1,21 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package uiMain;
 
-/**
- *
- * @author Usuario
- */
+package uiMain;
+import java.util.*;
 public class InformacionCuenta extends OpcionDeMenu {
+    private String info;
+    
+    InformacionCuenta(String s){
+        this.info=s;
+    }
     @Override
-    public void ejecutar(){
-        
+    public void ejecutar() {
+
+        for (Map.Entry<String, String[]> entry : gestorAplicacion.usuario.Usuario.getUsersList().entrySet()) {
+                System.out.println("            " + entry.getKey() + "          ");
+                System.out.println("genero: " + entry.getValue()[0] + "         " + "clasificación: " + entry.getValue()[1]);
+                System.out.println("duración: " + entry.getValue()[2] + "           " + "idioma: " + entry.getValue()[3]);
+            }
+
     }
     @Override
     public String toString() {
-        return "informacion";
+        return info;
     }
 }
