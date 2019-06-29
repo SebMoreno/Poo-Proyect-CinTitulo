@@ -11,6 +11,11 @@ public class Pelicula {
     private final String duracion;
     private final String idioma;
     private static HashMap<String, String[]> moviesList = new HashMap<>();
+    
+    static {
+        baseDeDatos.RegistroPelicula.readTxt();
+
+    }
 
     public Pelicula(String genero, String clasificacion, String titulo, String duracion, String idioma) {
         this.genero = genero;
@@ -18,6 +23,12 @@ public class Pelicula {
         this.titulo = titulo;
         this.duracion = duracion;
         this.idioma = idioma;
+        while (moviesList.containsKey(titulo)) {
+            System.out.println("pelicula ya ingresada");//Programar para mostrar error y perdir nueva pelicula
+        }
+        String[] aux = {genero, clasificacion, duracion, idioma};
+        moviesList.put(titulo, aux);
+        baseDeDatos.RegistroPelicula.writeTxt();
     }
 
     public String getGenero() {
