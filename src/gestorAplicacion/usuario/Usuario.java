@@ -10,12 +10,7 @@ public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede
     private String clave;
     private String nombre;
     private String email;
-    private static HashMap<String, String[]> usersList = new HashMap<>();
-
-    static {
-        baseDeDatos.RegistroUsuario.readTxt();
-
-    }
+    private static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
 
     public Usuario(String usuario, String clave, String rol) {
         this(usuario, clave, rol, "NN");
@@ -30,13 +25,15 @@ public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede
         this.rol = rol;
         this.nombre = nombre;
         this.email = email;
+        baseDeDatos.Registro r = new baseDeDatos.RegistroUsuario();
+        r.readTxt();
         while (usersList.containsKey(usuario)) {
             System.out.println("usuario ya usado");//Programar para mostrar error y perdir nuevo usuario
             //this.usuario = nueva entrada del usuario
         }
         String[] aux = {clave, rol, nombre, email};
         usersList.put(usuario, aux);
-        baseDeDatos.RegistroUsuario.writeTxt();
+        r.writeTxt();
         this.usuario = usuario; // Quitar esta linea al acabar con while del menu
         this.cuenta = new Cuenta(this);
     }

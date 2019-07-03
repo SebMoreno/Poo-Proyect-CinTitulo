@@ -6,22 +6,20 @@ public class Cuenta {
     
     private final Usuario propietario;
     private int saldo;
-    private int idBoletas;
-    private final HashMap<String, Integer[]> boletasList = new HashMap<>(); // key: usuario, value: idFuncion, estado
-    public static final HashMap<String, Integer[]> cuentasList = new HashMap<>();
+    private int idBoletas= baseDeDatos.RegistroBoletas.getCantidadArchivos();
+    
+    public static final HashMap<String, Integer[]> cuentasList = new HashMap<>(); // key: usuario    value: saldo, idBoletas
 
-    static {
-        baseDeDatos.RegistroCuenta.readTxt();
-
-    }
     
     protected Cuenta(Usuario propietario) {
+        baseDeDatos.Registro r = new baseDeDatos.RegistroCuenta();
+        r.readTxt();
         this.propietario = propietario;
         Integer[] aux = {saldo, idBoletas};
         cuentasList.put(propietario.getUsuario(), aux);
-        baseDeDatos.RegistroCuenta.writeTxt();
+        r.writeTxt();
         this.idBoletas = cuentasList.size();
-        baseDeDatos.RegistroBoletas.nuevaBoletasList(this.idBoletas);
+        gestorAplicacion.cine.Boleta.nuevaBoletasList(this.idBoletas);
     }
 
     public Usuario getPropietario() {
@@ -38,10 +36,6 @@ public class Cuenta {
 
     public void setSaldo(int saldo) {
         this.saldo = saldo;
-    }
-
-    public HashMap<String, Integer[]> getBoletasList() {
-        return boletasList;
     }
     
 

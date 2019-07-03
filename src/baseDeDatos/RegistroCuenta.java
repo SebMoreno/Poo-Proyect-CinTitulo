@@ -7,9 +7,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-public class RegistroCuenta {
+public class RegistroCuenta extends Registro{
 
-    public static void writeTxt() {
+    @Override
+    public void writeTxt() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/temp/cuentas.txt"));) {
             for (Map.Entry<String, Integer[]> entry : gestorAplicacion.usuario.Cuenta.getCuentasList().entrySet()) {
                 bw.write(entry.getKey() + " " + Integer.toString(entry.getValue()[0]) + " " + Integer.toString(entry.getValue()[1]));
@@ -21,7 +22,8 @@ public class RegistroCuenta {
 
     }
 
-    public static void readTxt() {
+    @Override
+    public void readTxt() {
         try (BufferedReader br = new BufferedReader(new FileReader("src/temp/cuentas.txt"));) {
             String line;
             do {
