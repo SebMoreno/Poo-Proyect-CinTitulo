@@ -8,10 +8,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-public class RegistroBoletas {
+public class RegistroBoletas extends Registro{
     private static File file;
-    public static void nuevaBoletasList(int nombreFile){
-        file = new File("src/temp/boletas", "b" + Integer.toString(nombreFile) + ".txt");
+    private static String path = "src/temp/boletas";
+    private static int cantidadArchivos;
+    
+    static{
+    
+    
+    
+    }
+    
+    
+    
+    public static void nuevoFichero(String nombreFile){
+        file = new File(path, nombreFile);
         try {
             file.createNewFile();
         } catch (IOException ex) {
@@ -20,7 +31,8 @@ public class RegistroBoletas {
     
     }
 
-    public static void writeTxt() {
+    @Override
+    public void writeTxt() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file.getPath()));) {
             for (Map.Entry<String, Integer[]> entry : gestorAplicacion.usuario.Cuenta.getCuentasList().entrySet()) {
                 bw.write(entry.getKey() + " " + Integer.toString(entry.getValue()[0]) + " " + Integer.toString(entry.getValue()[1]));
@@ -32,6 +44,7 @@ public class RegistroBoletas {
 
     }
 
+    @Override
     public void readTxt() {
         try (BufferedReader br = new BufferedReader(new FileReader(file.getPath()));) {
             String line;
@@ -48,4 +61,9 @@ public class RegistroBoletas {
         }
 
     }
+
+    public static int getCantidadArchivos() {
+        return cantidadArchivos;
+    }
+    
 }
