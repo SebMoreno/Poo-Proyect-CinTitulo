@@ -28,6 +28,7 @@ public class Boleta {
 
     public static void nuevaBoletasList(Integer id) {
         baseDeDatos.RegistroBoletas.nuevoFichero("b" + Integer.toString(id) + ".txt");
+        //baseDeDatos.RegistroBoletas.readTxt();
     }
 
     public Cuenta getDueño() {
