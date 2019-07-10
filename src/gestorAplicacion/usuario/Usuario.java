@@ -1,5 +1,7 @@
 package gestorAplicacion.usuario;
 
+import static baseDeDatos.Registro.readTxt;
+import static baseDeDatos.Registro.writeTxt;
 import java.util.HashMap;
 
 public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
@@ -10,7 +12,11 @@ public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede
     private String clave;
     private String nombre;
     private String email;
-    private static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
+    private final static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
+
+    static {
+        readTxt("usuarios.txt", usersList);
+    }
 
     public Usuario(String usuario, String clave, String rol) {
         this(usuario, clave, rol, "NN");
@@ -25,15 +31,13 @@ public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede
         this.rol = rol;
         this.nombre = nombre;
         this.email = email;
-        baseDeDatos.Registro r = new baseDeDatos.RegistroUsuario();
-        r.readTxt();
         while (usersList.containsKey(usuario)) {
             System.out.println("usuario ya usado");//Programar para mostrar error y perdir nuevo usuario
             //this.usuario = nueva entrada del usuario
         }
         String[] aux = {clave, rol, nombre, email};
         usersList.put(usuario, aux);
-        r.writeTxt();
+        writeTxt("usuarios.txt", usersList);
         this.usuario = usuario; // Quitar esta linea al acabar con while del menu
         this.cuenta = new Cuenta(this);
     }

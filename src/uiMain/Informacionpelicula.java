@@ -14,7 +14,7 @@ public class Informacionpelicula extends OpcionDeMenu {
     @Override
     public void ejecutar() {
 
-        for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Pelicula.getMoviesList().entrySet()) {
+        for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Pelicula.getPelisList().entrySet()) {
                 System.out.println("            " + entry.getKey() + "          ");
                 System.out.println("genero: " + entry.getValue()[0] + "         " + "clasificación: " + entry.getValue()[1]);
                 System.out.println("duración: " + entry.getValue()[2] + "           " + "idioma: " + entry.getValue()[3]);

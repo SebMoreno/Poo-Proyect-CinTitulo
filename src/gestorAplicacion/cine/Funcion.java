@@ -1,22 +1,38 @@
 package gestorAplicacion.cine;
 
+import static baseDeDatos.Registro.readTxt;
+import static baseDeDatos.Registro.writeTxt;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Funcion {
 
     private Sala sala;
-    private final Silla[][] sillas = sala.sillas;
-    private String hora;
-    private int precio;
-    private Short sillasOcupadas;
     private Pelicula pelicula;
-    private  int idFuncion;
-    private static int numFunciones;
+    private String hora;
+    private Short sillasOcupadas;
+    private final int idFuncion;
+    private final static HashMap<String, String[]> funcionesList = new HashMap<>(); // key: idFuncion     value: idSala, tituloPelicula, hora, sillasOcupadas
+
+    static {
+        readTxt("funciones.txt", funcionesList);
+    }
 
     public Funcion(Sala sala, String hora, Pelicula pelicula) {
         this.sala = sala;
         this.hora = hora;
         this.pelicula = pelicula;
-        numFunciones++;
-        idFuncion = numFunciones;
+        int mayorId = 0, aux;
+        for (Map.Entry<String, String[]> entry : funcionesList.entrySet()) {
+            aux = Integer.valueOf(entry.getKey());
+            if (mayorId < aux) {
+                mayorId = aux;
+            }
+        }
+        this.idFuncion = mayorId + 1;
+        String[] valor = {Integer.toString(sala.getIdSala()), pelicula.getTitulo(), hora, "0"};
+        funcionesList.put(Integer.toString(idFuncion), valor);
+        writeTxt("funciones.txt", funcionesList);
     }
 
     public Sala getSala() {
@@ -35,6 +51,14 @@ public class Funcion {
         this.hora = hora;
     }
 
+    public Short getSillasOcupadas() {
+        return sillasOcupadas;
+    }
+
+    public void setSillasOcupadas(Short sillasOcupadas) {
+        this.sillasOcupadas = sillasOcupadas;
+    }
+
     public Pelicula getPelicula() {
         return pelicula;
     }
@@ -43,20 +67,12 @@ public class Funcion {
         this.pelicula = pelicula;
     }
 
-    public Silla[][] getSillas() {
-        return sillas;
+    public int getIdFuncion() {
+        return idFuncion;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
-    public Short getSillasOcupadas() {
-        return sillasOcupadas;
+    public static HashMap<String, String[]> getFuncionesList() {
+        return funcionesList;
     }
 
 }

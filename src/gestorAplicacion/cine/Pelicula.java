@@ -1,6 +1,7 @@
 package gestorAplicacion.cine;
 
-import java.util.ArrayList;
+import static baseDeDatos.Registro.readTxt;
+import static baseDeDatos.Registro.writeTxt;
 import java.util.HashMap;
 
 public class Pelicula {
@@ -10,25 +11,24 @@ public class Pelicula {
     private final String titulo;
     private final String duracion;
     private final String idioma;
-    private static HashMap<String, String[]> moviesList = new HashMap<>();
-    
-    static {
-        baseDeDatos.RegistroPelicula.readTxt();
+    private final static HashMap<String, String[]> pelisList = new HashMap<>(); // key: titulo     value: genero, clasificacion, duracion, idioma
 
+    static {
+        readTxt("peliculas.txt", pelisList);
     }
 
-    public Pelicula(String genero, String clasificacion, String titulo, String duracion, String idioma) {
+    public Pelicula(String titulo, String genero, String clasificacion, String duracion, String idioma) {
         this.genero = genero;
         this.clasificacion = clasificacion;
         this.titulo = titulo;
         this.duracion = duracion;
         this.idioma = idioma;
-        while (moviesList.containsKey(titulo)) {
+        while (pelisList.containsKey(titulo)) {
             System.out.println("pelicula ya ingresada");//Programar para mostrar error y perdir nueva pelicula
         }
         String[] aux = {genero, clasificacion, duracion, idioma};
-        moviesList.put(titulo, aux);
-        baseDeDatos.RegistroPelicula.writeTxt();
+        pelisList.put(titulo, aux);
+        writeTxt("peliculas.txt", pelisList);
     }
 
     public String getGenero() {
@@ -50,9 +50,9 @@ public class Pelicula {
     public String getIdioma() {
         return idioma;
     }
-    
-    public static HashMap<String, String[]> getMoviesList() {
-        return moviesList;
+
+    public static HashMap<String, String[]> getPelisList() {
+        return pelisList;
     }
 
 }
