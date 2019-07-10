@@ -1,10 +1,44 @@
 package baseDeDatos;
 
-/**
- *
- * @author SebMoreno
- */
-abstract public class Registro {
-    abstract public void writeTxt();
-    abstract public void readTxt();
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Registro {
+
+    public static void writeTxt(String archivo, HashMap<String, String[]> lista) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/temp/" + archivo));) {
+            for (Map.Entry<String, String[]> entry : lista.entrySet()) {
+                bw.write(entry.getKey());
+                for (String value : entry.getValue()) {
+                    bw.write(" " + value);
+                    bw.newLine();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("error de lectura de archivo");  // Por revisar y codificar
+        }
+
+    }
+
+    public static void readTxt(String archivo, HashMap<String, String[]> lista) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/temp/" + archivo));) {
+            String line;
+            do {
+                line = br.readLine();
+                String[] datos = line.split(" ");
+
+                String[] aux = new String[datos.length - 1];
+                System.arraycopy(datos, 1, aux, 0, (datos.length - 1));
+                lista.put(datos[0], aux);
+            } while (line != null);
+        } catch (IOException e) {
+            System.out.println("error de lectura de archivo");  // Por revisar y codificar
+        }
+
+    }
 }
