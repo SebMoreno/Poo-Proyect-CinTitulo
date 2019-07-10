@@ -4,7 +4,7 @@ import static baseDeDatos.Registro.readTxt;
 import static baseDeDatos.Registro.writeTxt;
 import java.util.HashMap;
 
-public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
+public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
 
     private final String usuario;
     private final String rol;
@@ -18,15 +18,7 @@ public class Usuario {//esta sera mi super clase por eso tiene todo lo que puede
         readTxt("usuarios.txt", usersList);
     }
 
-    public Usuario(String usuario, String clave, String rol) {
-        this(usuario, clave, rol, "NN");
-    }
-
-    public Usuario(String usuario, String clave, String rol, String nombre) {
-        this(usuario, clave, rol, nombre, "NE");
-    }
-
-    public Usuario(String usuario, String clave, String rol, String nombre, String email) {
+    protected Usuario(String usuario, String clave, String rol, String nombre, String email) {
         this.clave = clave;
         this.rol = rol;
         this.nombre = nombre;
