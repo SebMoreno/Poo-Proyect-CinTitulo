@@ -1,13 +1,17 @@
+
 package uiMain;
 
-public class CerrarSesion extends OpcionDeMenu {
+public class IniciarComoInvitado extends OpcionDeMenu {
     private String titulomenu;
     
+    IniciarComoInvitado(){
+        MenuDeConsola.Añadir_opcion(this);
+    }
+    
     public void ejecutar(){
-        MenuDeConsola.lanzarMenu();
     }
     
     public String toString(){
         return titulomenu;
     }
-} 
+}  
