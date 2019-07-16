@@ -7,9 +7,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
+import uiMain.OpcionDeMenu;
+import uiMain.MenuDeConsola;
+import gestorAplicacion.usuario.Usuario;
 
 public class Registro {
 
+    public HashMap <String, OpcionDeMenu> menu_generico = new HashMap <>();
+    public HashMap <Usuario, MenuDeConsola> menus_usarios = new HashMap <>();
+    public void MenuString_to_MenuOptions(String [] menu_user_string, ArrayList<OpcionDeMenu> menu_user){
+        for (String i : menu_user_string){
+            menu_user.add(menu_generico.get(i));
+        }
+    }
+    
     public static void writeTxt(String archivo, HashMap<String, String[]> lista) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/temp/" + archivo));) {
             for (Map.Entry<String, String[]> entry : lista.entrySet()) {
