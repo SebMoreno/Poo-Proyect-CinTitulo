@@ -8,13 +8,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
-import uiMain.OpcionDeMenu;
-import uiMain.MenuDeConsola;
+import uiMain.*;
 import gestorAplicacion.usuario.Usuario;
 
-public class Registro {
 
-    public HashMap <String, OpcionDeMenu> menu_generico = new HashMap <>();
+   
+
+public class Registro {
+    HashMap <String, OpcionDeMenu> menu_generico = new HashMap <>(); //falta añadir cada opcion existente de los menus
     public HashMap <Usuario, MenuDeConsola> menus_usarios = new HashMap <>();
     public void MenuString_to_MenuOptions(String [] menu_user_string, ArrayList<OpcionDeMenu> menu_user){
         for (String i : menu_user_string){

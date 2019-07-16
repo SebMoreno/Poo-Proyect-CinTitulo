@@ -3,6 +3,10 @@ package uiMain;
 public class RecargarSaldo extends OpcionDeMenu {
     private String titulomenu;
     
+    public RecargarSaldo (String s){
+        this.titulomenu = s;
+    }
+    
     public void ejecutar(){
         //terminar método cuando se estructure el sistema de pagos
     }

@@ -3,7 +3,7 @@ package uiMain;
 public class IniciarSesion extends OpcionDeMenu {
     private String titulomenu;
     
-    IniciarSesion(String s){
+    public IniciarSesion(String s){
         this.titulomenu = s;
     }
     

@@ -3,7 +3,7 @@ package uiMain;
 public class RegistrarNuevoUsuario extends OpcionDeMenu {
     private String titulomenu;
     
-    RegistrarNuevoUsuario(String s){
+    public RegistrarNuevoUsuario(String s){
         this.titulomenu = s;
     }
     

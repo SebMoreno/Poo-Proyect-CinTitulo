@@ -7,7 +7,7 @@ public class Informacionpelicula extends OpcionDeMenu {
     Scanner entrada = new Scanner(System.in);
     private String titulomenu;
     
-    Informacionpelicula(String s){
+    public Informacionpelicula(String s){
         this.titulomenu=s;
     }
     

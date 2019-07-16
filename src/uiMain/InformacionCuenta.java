@@ -4,7 +4,7 @@ import java.util.*;
 public class InformacionCuenta extends OpcionDeMenu {
     private String info;
     
-    InformacionCuenta(String s){
+    public InformacionCuenta(String s){
         this.info=s;
     }
     @Override
