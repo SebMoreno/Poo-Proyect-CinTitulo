@@ -3,6 +3,9 @@ package gestorAplicacion.usuario;
 import static baseDeDatos.Registro.readTxt;
 import static baseDeDatos.Registro.writeTxt;
 import java.util.HashMap;
+import java.util.ArrayList;
+import uiMain.OpcionDeMenu;
+import baseDeDatos.Registro;
 
 public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
 
@@ -12,8 +15,9 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     private String clave;
     private String nombre;
     private String email;
-    private final static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
-
+    private static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
+    public ArrayList <OpcionDeMenu> menu_user = new ArrayList <> ();
+    
     static {
         readTxt("usuarios.txt", usersList);
     }
@@ -32,6 +36,7 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
         writeTxt("usuarios.txt", usersList);
         this.usuario = usuario; // Quitar esta linea al acabar con while del menu
         this.cuenta = new Cuenta(this);
+        //MenuString_to_MenuOptions(String [] menu_user_string, this.menu_user);
     }
 
     public String getUsuario() {
