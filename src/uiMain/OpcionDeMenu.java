@@ -1,6 +1,6 @@
 package uiMain;
 
-public abstract class OpcionDeMenu extends MenuDeConsola{
+public abstract class OpcionDeMenu {
 
 	public abstract void ejecutar ();//clase abstracta de todos los menus
 	
