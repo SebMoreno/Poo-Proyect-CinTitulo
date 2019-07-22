@@ -13,6 +13,7 @@ public class IniciarComoInvitado extends OpcionDeMenu {
     public IniciarComoInvitado(String s){
         titulomenu=s;
         array_o = Registro.MenuString_to_MenuOptions(array_s);
+        menu_guest.opciones = array_o;
     }
     
     @Override

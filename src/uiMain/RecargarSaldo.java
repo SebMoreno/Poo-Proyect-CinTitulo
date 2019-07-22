@@ -4,9 +4,9 @@ import static baseDeDatos.Registro.writeTxt;
 import java.util.Scanner;
 
 public class RecargarSaldo extends OpcionDeMenu {
-    static {
-        readTxt("usuarios.txt", gestorAplicacion.usuario.Cuenta.getCuentasList());
-    }
+   /* static {
+        readTxt("cuentas.txt", gestorAplicacion.usuario.Cuenta.getCuentasList());
+    } */
     private String titulomenu;
     Scanner scan = new Scanner(System.in);
     public RecargarSaldo (String s){
@@ -14,7 +14,7 @@ public class RecargarSaldo extends OpcionDeMenu {
     }
     
     public void ejecutar(){
-        
+    /*    
     String nombre =uiMain.IniciarSesion.getUsuarioActivo();
     System.out.println("Ingrese su recarga");
     int recarga= scan.nextInt();
@@ -31,7 +31,7 @@ public class RecargarSaldo extends OpcionDeMenu {
     
     
     
-        
+      */  
     }
     
     public String toString(){

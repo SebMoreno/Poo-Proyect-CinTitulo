@@ -1,7 +1,7 @@
 package uiMain;
 
+import java.util.Map;
 import java.util.Scanner;
-import java.util.ArrayList;
 public class IniciarSesion extends OpcionDeMenu {
     private String titulomenu;
     private static String usuarioActivo;
@@ -17,6 +17,10 @@ public class IniciarSesion extends OpcionDeMenu {
         String nickname = scan.next();
         System.out.println("Ingrese contraseña");
         String pass = scan.next();
+        
+        //for (Map.Entry<String, String[]> entry : gestorAplicacion.usuario.Usuario.getUsersList().entrySet()) {}
+            
+        
         
         while(!gestorAplicacion.usuario.Usuario.getUsersList().containsKey(nickname)){
             

@@ -7,7 +7,10 @@ public class RegistrarNuevoUsuario extends OpcionDeMenu {
     private String titulomenu;
     Scanner scan = new Scanner(System.in);
     
-    //falta el constructor
+    public RegistrarNuevoUsuario (String s){
+        titulomenu=s;
+    }
+    
     public void ejecutar(){
     
         System.out.println("Ingrese un usuario");
@@ -16,9 +19,14 @@ public class RegistrarNuevoUsuario extends OpcionDeMenu {
         String password = scan.next();
         System.out.println("Ingrese su rol(\"cliente\" o \"admin\")");
         String rol = scan.next();
-        while(!rol.equals("cliente")||!rol.equals("admin")){
+        while((4%2)==0){
+        if (rol.equals("cliente")||rol.equals("admin")){
+            break;
+            }
+        else{
             System.out.println("Ingrese su rol(\"cliente\" o \"admin\")");
             rol = scan.next();
+        }
         }
         System.out.println("Ingrese su email");
         String email=scan.next();

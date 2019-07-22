@@ -8,7 +8,7 @@ public class Salir extends OpcionDeMenu {
     }
     
     public void ejecutar(){
-        //terminar método 
+        Main.navegador--;
     }
     
     public String toString(){
