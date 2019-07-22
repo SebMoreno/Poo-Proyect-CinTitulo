@@ -8,7 +8,7 @@ public class Invitado extends Usuario {
     public Invitado(int x) {
         super("invitado" + x, "NA", "NA", "NA ", "NE");
         String a[] = {"informacion pelicula","registrarse"};
-        Registro.MenuString_to_MenuOptions(a, this.menu_user);
+        this.menu_user = Registro.MenuString_to_MenuOptions(a);
         numero_invitados++;
     }
 }

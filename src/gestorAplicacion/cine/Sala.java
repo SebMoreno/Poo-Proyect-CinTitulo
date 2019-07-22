@@ -41,7 +41,7 @@ public class Sala {
         int cap = 0;
         for (int i = 0; i < sillas.length; i++) {
             for (int j = 0; j < sillas[0].length; j++) {
-                if (sillas[i][j] != null) {
+                if (sillas[i][j] != null) { //deberia cambiarse eso por un igual (?)
                     cap++;
                 }
             }
@@ -107,5 +107,10 @@ public class Sala {
             return null;
         }
     }
+    
+    public static HashMap<String, String[]> getSalasList() {
+        return salasList;
+    }
+    
 
 }

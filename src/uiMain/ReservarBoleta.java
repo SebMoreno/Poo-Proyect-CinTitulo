@@ -8,7 +8,7 @@ public class ReservarBoleta extends OpcionDeMenu {
     }
     
     public void ejecutar(){
-        //terminar método cuando se estructure el sistema de pagos
+        //la maricada de las sillas
     }
     
     public String toString(){

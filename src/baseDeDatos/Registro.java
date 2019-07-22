@@ -18,10 +18,12 @@ public class Registro {
     static public HashMap <String, OpcionDeMenu> menu_generico = new HashMap <>(); //falta añadir cada opcion existente de los menus
     public HashMap <Usuario, MenuDeConsola> menus_usarios = new HashMap <>();
     
-    static public void MenuString_to_MenuOptions(String [] menu_user_string, ArrayList<OpcionDeMenu> menu_user){
+    static public ArrayList<OpcionDeMenu> MenuString_to_MenuOptions(String [] menu_user_string){
+        ArrayList <OpcionDeMenu> aux = new ArrayList<>();
         for (String i : menu_user_string){
-            menu_user.add(menu_generico.get(i));
+            aux.add(menu_generico.get(i));
         }
+        return aux;
     }
     
     static public void god_menu_birth(){

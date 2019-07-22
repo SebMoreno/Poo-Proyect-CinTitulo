@@ -7,9 +7,11 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import uiMain.MenuDeConsola;
 import uiMain.OpcionDeMenu;
+import java.util.Scanner;
 
 public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
 
+    Scanner scan = new Scanner(System.in);
     private final String usuario;
     private final String rol;
     private final Cuenta cuenta;
@@ -30,8 +32,8 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
         this.nombre = nombre;
         this.email = email;
         while (usersList.containsKey(usuario)) {
-            System.out.println("usuario ya usado");//Programar para mostrar error y perdir nuevo usuario
-            //this.usuario = nueva entrada del usuario
+            System.out.println("usuario ya usadon\nIngrese un nombre de usuario nuevo");
+            usuario = scan.next();
         }
         String[] aux = {clave, rol, nombre, email};
         usersList.put(usuario, aux);
