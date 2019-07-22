@@ -1,8 +1,12 @@
 package uiMain;
+import static baseDeDatos.Registro.readTxt;
 import static baseDeDatos.Registro.writeTxt;
 import java.util.Scanner;
 
 public class RecargarSaldo extends OpcionDeMenu {
+    static {
+        readTxt("usuarios.txt", gestorAplicacion.usuario.Cuenta.getCuentasList());
+    }
     private String titulomenu;
     Scanner scan = new Scanner(System.in);
     public RecargarSaldo (String s){
