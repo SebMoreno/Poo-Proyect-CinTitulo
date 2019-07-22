@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
 
-    Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
     private final String usuario;
     private final String rol;
     private final Cuenta cuenta;
@@ -32,7 +32,7 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
         this.nombre = nombre;
         this.email = email;
         while (usersList.containsKey(usuario)) {
-            System.out.println("usuario ya usadon\nIngrese un nombre de usuario nuevo");
+            System.out.println("usuario ya usado\nIngrese un nombre de usuario nuevo");
             usuario = scan.next();
         }
         String[] aux = {clave, rol, nombre, email};

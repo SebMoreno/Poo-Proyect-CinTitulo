@@ -15,8 +15,8 @@ import gestorAplicacion.usuario.Usuario;
    
 
 public class Registro {
-    static public HashMap <String, OpcionDeMenu> menu_generico = new HashMap <>(); //falta añadir cada opcion existente de los menus
-    public HashMap <Usuario, MenuDeConsola> menus_usarios = new HashMap <>();
+    final static public HashMap <String, OpcionDeMenu> menu_generico = new HashMap <>();
+    public final HashMap <Usuario, MenuDeConsola> menus_usarios = new HashMap <>();
     
     static public ArrayList<OpcionDeMenu> MenuString_to_MenuOptions(String [] menu_user_string){
         ArrayList <OpcionDeMenu> aux = new ArrayList<>();
@@ -47,8 +47,8 @@ public class Registro {
                 bw.write(entry.getKey());
                 for (String value : entry.getValue()) {
                     bw.write(" " + value);
-                    bw.newLine();
                 }
+                    bw.newLine();
             }
         } catch (IOException e) {
             System.out.println("error de lectura de archivo");  // Por revisar y codificar
@@ -58,15 +58,15 @@ public class Registro {
 
     public static void readTxt(String archivo, HashMap<String, String[]> lista) {
         try (BufferedReader br = new BufferedReader(new FileReader("src/temp/" + archivo));) {
-            String line;
-            do {
-                line = br.readLine();
+            String line = br.readLine();
+            
+            while (line != null) {
                 String[] datos = line.split(" ");
-
                 String[] aux = new String[datos.length - 1];
                 System.arraycopy(datos, 1, aux, 0, (datos.length - 1));
                 lista.put(datos[0], aux);
-            } while (line != null);
+                line = br.readLine();
+            }
         } catch (IOException e) {
             System.out.println("error de lectura de archivo");  // Por revisar y codificar
         }
