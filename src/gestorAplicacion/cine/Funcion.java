@@ -74,5 +74,14 @@ public class Funcion {
     public static HashMap<String, String[]> getFuncionesList() {
         return funcionesList;
     }
+    public static void deleteFuncion(int id){
+        if(funcionesList.containsKey(id)){
+            funcionesList.remove(id);
+            System.out.println("La función ha sido eliminada exitosamente.");
+        }
+        else{
+            System.out.println("No se ha enconrado ninguna fuinción\nNo se han realizado cambios.");
+        }
+    }
 
 }

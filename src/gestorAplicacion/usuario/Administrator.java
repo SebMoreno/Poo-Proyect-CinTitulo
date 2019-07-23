@@ -49,4 +49,5 @@ public class Administrator extends Usuario {
     private void admincreateFuncion(Sala sala, String hora, Pelicula pelicula) {
         Funcion nueva = new Funcion(sala, hora, pelicula);
     }
+    
 }
