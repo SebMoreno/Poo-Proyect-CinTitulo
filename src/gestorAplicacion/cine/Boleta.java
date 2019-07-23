@@ -20,7 +20,7 @@ public class Boleta {
         readTxt("cuentas.txt", cuentasList);
     }
 
-    protected Boleta(Cuenta dueño, Funcion funcion, Silla silla) {
+    public Boleta(Cuenta dueño, Funcion funcion, Silla silla) {
         this.dueño = dueño;
         this.funcion = funcion;
         this.silla = silla;
