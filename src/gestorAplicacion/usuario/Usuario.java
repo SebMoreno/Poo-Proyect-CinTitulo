@@ -12,6 +12,7 @@ import gestorAplicacion.cine.Pelicula;
 import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Sala;
 import gestorAplicacion.cine.Silla;
+import gestorAplicacion.cine.Boleta;
 
 public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
 
@@ -153,5 +154,9 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     }
     public void getIdSilla(Silla silla){
         silla.getIdSilla();
+    }
+    //ticket functions.
+    public void createTicket(Cuenta dueño, Funcion funcion, Silla silla){
+       // Boleta nuevo = new Boleta(dueño,funcion,silla);
     }
 }
