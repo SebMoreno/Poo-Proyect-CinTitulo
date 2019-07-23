@@ -15,7 +15,7 @@ public class Sala {
     final Silla[][] sillas;
     private final static HashMap<String, String[]> salasList = new HashMap<>(); // key: idSala     value: precio, tipo, capacidad, tamañoV, tamañoH idSilla[0][0], idSilla [0][1], ... , idSilla[n][n]
 
-    static {
+    public static void RT(){
         readTxt("salas.txt", salasList);
     }
 

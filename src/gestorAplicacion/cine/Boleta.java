@@ -16,7 +16,7 @@ public class Boleta {
     private final int precio;
     private final static HashMap<String, String[]> boletasList = new HashMap<>(); // key: idBoleta     value: usuario, idFuncion, posicionSilla, precio
 
-    static {
+    public static void RT(){
         readTxt("cuentas.txt", cuentasList);
     }
 

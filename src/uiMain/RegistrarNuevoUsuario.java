@@ -1,4 +1,4 @@
-package uiMain;
+ package uiMain;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Usuario;
 import gestorAplicacion.usuario.Administrator;
@@ -33,11 +33,11 @@ public class RegistrarNuevoUsuario extends OpcionDeMenu {
         System.out.println("Ingrese su nombre");
         String nombre=scan.next();
         if(rol.equals("cliente")){
-            Cliente nuevo = new Cliente(usuario,password,nombre,email) ;    
+            Cliente nuevo = new Cliente(usuario,password,nombre,email,false) ;    
         }
         else{
             //crear txt con un codigo
-            Administrator nuevo = new Administrator(usuario,password,nombre,email);
+            Administrator nuevo = new Administrator(usuario,password,nombre,email,false);
         }
         
         

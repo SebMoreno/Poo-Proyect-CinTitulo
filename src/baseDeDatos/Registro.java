@@ -1,5 +1,11 @@
 package baseDeDatos;
 
+import gestorAplicacion.cine.Boleta;
+import gestorAplicacion.cine.Funcion;
+import gestorAplicacion.cine.Pelicula;
+import gestorAplicacion.cine.Sala;
+import gestorAplicacion.cine.Silla;
+import gestorAplicacion.usuario.Cuenta;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -11,22 +17,30 @@ import java.util.ArrayList;
 import uiMain.*;
 import gestorAplicacion.usuario.Usuario;
 
-
-   
-
 public class Registro {
-    final static public HashMap <String, OpcionDeMenu> menu_generico = new HashMap <>();
-    public final HashMap <Usuario, MenuDeConsola> menus_usarios = new HashMap <>();
-    
-    static public ArrayList<OpcionDeMenu> MenuString_to_MenuOptions(String [] menu_user_string){
-        ArrayList <OpcionDeMenu> aux = new ArrayList<>();
-        for (String i : menu_user_string){
+
+    final static public HashMap<String, OpcionDeMenu> menu_generico = new HashMap<>();
+    public final HashMap<Usuario, MenuDeConsola> menus_usarios = new HashMap<>();
+
+    static public ArrayList<OpcionDeMenu> MenuString_to_MenuOptions(String[] menu_user_string) {
+        ArrayList<OpcionDeMenu> aux = new ArrayList<>();
+        for (String i : menu_user_string) {
             aux.add(menu_generico.get(i));
         }
         return aux;
     }
-    
-    static public void god_menu_birth(){
+
+    static public void readAllTxt() {
+        Usuario.RT();
+        Cuenta.RT();
+        Silla.RT();
+        Sala.RT();
+        Pelicula.RT();
+        Funcion.RT();
+        Boleta.RT();
+    }
+
+    static public void god_menu_birth() {
         menu_generico.put("iniciar sesion", new IniciarSesion("Log In"));
         menu_generico.put("cerrar sesion", new CerrarSesion("Log Out"));
         menu_generico.put("informacion pelicula", new Informacionpelicula("Informacion Peliculas"));
@@ -40,7 +54,7 @@ public class Registro {
         menu_generico.put("iniciar como invitado", new IniciarComoInvitado("Iniciar Como Invitado"));
         menu_generico.put("salir", new Salir("Salir"));
     }
-    
+
     public static void writeTxt(String archivo, HashMap<String, String[]> lista) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/temp/" + archivo));) {
             for (Map.Entry<String, String[]> entry : lista.entrySet()) {
@@ -48,10 +62,12 @@ public class Registro {
                 for (String value : entry.getValue()) {
                     bw.write(" " + value);
                 }
-                    bw.newLine();
+                bw.newLine();
             }
         } catch (IOException e) {
             System.out.println("error de lectura de archivo");  // Por revisar y codificar
+            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
         }
 
     }
@@ -59,7 +75,7 @@ public class Registro {
     public static void readTxt(String archivo, HashMap<String, String[]> lista) {
         try (BufferedReader br = new BufferedReader(new FileReader("src/temp/" + archivo));) {
             String line = br.readLine();
-            
+
             while (line != null) {
                 String[] datos = line.split(" ");
                 String[] aux = new String[datos.length - 1];

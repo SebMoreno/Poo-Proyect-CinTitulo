@@ -14,7 +14,7 @@ public class Funcion {
     private final int idFuncion;
     private final static HashMap<String, String[]> funcionesList = new HashMap<>(); // key: idFuncion     value: idSala, tituloPelicula, hora, sillasOcupadas
 
-    static {
+    public static void RT(){
         readTxt("funciones.txt", funcionesList);
     }
 

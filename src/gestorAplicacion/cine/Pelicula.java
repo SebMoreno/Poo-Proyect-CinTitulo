@@ -15,7 +15,7 @@ public class Pelicula {
     private String sala;
     
     
-    static {
+    public static void RT(){
         readTxt("peliculas.txt", pelisList);
     }
 

@@ -19,7 +19,7 @@ public class Silla {
 
     private final static HashMap<String, String[]> sillasList = new HashMap<>(); // key: idSilla     value: incremento, vibrosound, preferencial, ocupada, posicion, idSala
 
-    static {
+    public static void RT(){
         readTxt("sillas.txt", sillasList);
     }
 

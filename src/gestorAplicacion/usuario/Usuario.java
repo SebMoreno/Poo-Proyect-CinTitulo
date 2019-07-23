@@ -19,27 +19,32 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     private String nombre;
     private String email;
     private static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
-    public ArrayList <OpcionDeMenu> menu_user = new ArrayList <> ();
+    public ArrayList<OpcionDeMenu> menu_user = new ArrayList<>();
     public MenuDeConsola console_menu_user = new MenuDeConsola(menu_user);
-    
-    static {
+
+    public static void RT(){
         readTxt("usuarios.txt", usersList);
     }
 
-    protected Usuario(String usuario, String clave, String rol, String nombre, String email) {
+    protected Usuario(String usuario, String clave, String rol, String nombre, String email, boolean existe) {
         this.clave = clave;
         this.rol = rol;
         this.nombre = nombre;
         this.email = email;
-        while (usersList.containsKey(usuario)) {
-            System.out.println("usuario ya usado\nIngrese un nombre de usuario nuevo");
-            usuario = scan.next();
+        if (existe) {
+            this.usuario = usuario;
+            this.cuenta = new Cuenta(this, true);
+        } else {
+            while (usersList.containsKey(usuario)) {
+                System.out.println("usuario ya usado\nIngrese un nombre de usuario nuevo");
+                usuario = scan.next();
+            }
+            this.usuario = usuario;
+            String[] aux = {clave, rol, nombre, email};
+            usersList.put(usuario, aux);
+            writeTxt("usuarios.txt", usersList);
+            this.cuenta = new Cuenta(this, false);
         }
-        String[] aux = {clave, rol, nombre, email};
-        usersList.put(usuario, aux);
-        writeTxt("usuarios.txt", usersList);
-        this.usuario = usuario; // Quitar esta linea al acabar con while del menu
-        this.cuenta = new Cuenta(this);
     }
 
     public String getUsuario() {
