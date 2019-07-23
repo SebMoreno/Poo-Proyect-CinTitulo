@@ -9,8 +9,8 @@ import java.util.Map;
 public class Sala {
 
     private final int idSala;
-    private final int precio;
-    private final String tipo;
+    private int precio;
+    private String tipo;
     private final int capacidad;
     final Silla[][] sillas;
     private final static HashMap<String, String[]> salasList = new HashMap<>(); // key: idSala     value: precio, tipo, capacidad, tamañoV, tamañoH idSilla[0][0], idSilla [0][1], ... , idSilla[n][n]
@@ -111,6 +111,23 @@ public class Sala {
     public static HashMap<String, String[]> getSalasList() {
         return salasList;
     }
-    
+    public void setTipo(String tipo){
+        switch (tipo) {
+            case "2D":
+                this.precio = 10000;
+                break;
+            case "3D":
+                this.precio = 12000;
+                break;
+            case "IMAX":
+                this.precio = 15000;
+                break;
+            case "DINAMIX":
+                this.precio = 18000;
+                break;
+            default:
+                this.precio = 10000;
+        }
+    }
 
 }
