@@ -1,6 +1,7 @@
 package gestorAplicacion.usuario;
 
 import baseDeDatos.Registro;
+import gestorAplicacion.cine.Pelicula;
 
 public class Administrator extends Usuario{
 
@@ -21,5 +22,10 @@ public class Administrator extends Usuario{
         String a[] = {"actualizar menu","editar pelicula"};
         this.menu_user = Registro.MenuString_to_MenuOptions(a);
     }
-    
+    private void createmovie(String titulo, String genero, String clasificacion, String duracion, String idioma,String sala){
+        Pelicula nueva = new Pelicula(titulo, genero, clasificacion, duracion, idioma, sala);
+    }
+    private void deletemovie(String titulo){
+        Pelicula.delete(titulo);
+    }
 }
