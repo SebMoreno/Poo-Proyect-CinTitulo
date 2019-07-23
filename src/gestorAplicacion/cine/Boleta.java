@@ -1,4 +1,4 @@
-package gestorAplicacion.cine;
+ package gestorAplicacion.cine;
 
 import static baseDeDatos.Registro.readTxt;
 import static baseDeDatos.Registro.writeTxt;

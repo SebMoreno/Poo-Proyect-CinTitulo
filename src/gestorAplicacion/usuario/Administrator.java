@@ -52,7 +52,10 @@ public class Administrator extends Usuario {
         funcion.setPelicula(pelicula);
     }
 
-    private void admincreateFuncion(Sala sala, String hora, Pelicula pelicula) {
+    private void adminCreateFuncion(Sala sala, String hora, Pelicula pelicula) {
         Funcion nueva = new Funcion(sala, hora, pelicula);
+    }
+    private void adminDeleteFuncion(int id){
+        Funcion.deleteFuncion(id);
     }
 }
