@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import uiMain.MenuDeConsola;
 import uiMain.OpcionDeMenu;
 import java.util.Scanner;
+import gestorAplicacion.cine.Pelicula;
+import gestorAplicacion.cine.Funcion;
+import gestorAplicacion.cine.Sala;
+import gestorAplicacion.cine.Silla;
 
 public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
 
@@ -82,5 +86,72 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     public static HashMap<String, String[]> getUsersList() {
         return usersList;
     }
+    //get funtions of all users.
+    //get movie infomation:
+    public void getGenero(Pelicula pelicula){
+        pelicula.getGenero();
+    }
+    public void getClasificacion(Pelicula pelicula){
+        pelicula.getClasificacion();
+    }
+    public void getTitulo(Pelicula pelicula) {
+        pelicula.getTitulo();
+    }
 
+    public void getDuracion(Pelicula pelicula) {
+        pelicula.getDuracion();
+    }
+
+    public void getIdioma(Pelicula pelicula) {
+        pelicula.getIdioma();
+    }
+    //get function.
+    public void getSala(Funcion funcion){
+        funcion.getSala();
+    }
+    public void getHora(Funcion funcion){
+        funcion.getHora();
+    }
+    public void getSillasOcupadas(Funcion funcion){
+        funcion.getSillasOcupadas();
+    }
+    public void getPelicula(Funcion funcion){
+        funcion.getPelicula();
+    }
+    public void getIdFuncion(Funcion funcion){
+        funcion.getIdFuncion();
+    }
+    //get theater.
+    public void getPrecio(Sala sala) {
+        sala.getPrecio();
+    }
+
+    public void getTipo(Sala sala) {
+        sala.getTipo();
+    }
+
+    public void getCapacidad(Sala sala) {
+        sala.getCapacidad();
+    }
+
+    public void getIdSala(Sala sala) {
+        sala.getIdSala();
+    }
+
+    public void getSilla(Sala sala,int x ,int y) {
+        sala.getSilla(x, y);
+    }
+    //get silla.
+    public void getIncremento(Silla silla) {
+        silla.getIncremento();
+    }
+    public void getSala(Silla silla){
+        silla.getSala();
+    }
+    public void getPosicion(Silla silla){
+        silla.getPosicion();
+    }
+    public void getIdSilla(Silla silla){
+        silla.getIdSilla();
+    }
 }
