@@ -1,10 +1,7 @@
 package uiMain;
 
-import static baseDeDatos.Registro.MenuString_to_MenuOptions;
 import gestorAplicacion.usuario.Administrator;
 import gestorAplicacion.usuario.Cliente;
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Scanner;
 
 public class IniciarSesion extends OpcionDeMenu {
@@ -21,6 +18,7 @@ public class IniciarSesion extends OpcionDeMenu {
     }
 
     public void ejecutar() {
+        Main.navegador++;
         System.out.println("Ingrese usuario");
         String nickname = scan.next();
         while (!gestorAplicacion.usuario.Usuario.getUsersList().containsKey(nickname)) {

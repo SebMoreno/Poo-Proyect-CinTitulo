@@ -22,14 +22,6 @@ public class Registro {
     final static public HashMap<String, OpcionDeMenu> menu_generico = new HashMap<>();
     public final HashMap<Usuario, MenuDeConsola> menus_usarios = new HashMap<>();
 
-    static public ArrayList<OpcionDeMenu> MenuString_to_MenuOptions(String[] menu_user_string) {
-        ArrayList<OpcionDeMenu> aux = new ArrayList<>();
-        for (String i : menu_user_string) {
-            aux.add(menu_generico.get(i));
-        }
-        return aux;
-    }
-
     static public void readAllTxt() {
         Usuario.RT();
         Cuenta.RT();
@@ -52,7 +44,7 @@ public class Registro {
         menu_generico.put("actualizar menu", new ActualizarMenu("Actualizar Menu"));
         menu_generico.put("editar pelicula", new EditarPelicula("Editar Pelicula"));
         menu_generico.put("iniciar como invitado", new IniciarComoInvitado("Iniciar Como Invitado"));
-        menu_generico.put("salir", new Salir("Salir"));
+        menu_generico.put("salir", new Retroceder("Salir"));
     }
 
     public static void writeTxt(String archivo, HashMap<String, String[]> lista) {

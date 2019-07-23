@@ -12,8 +12,8 @@ public class IniciarComoInvitado extends OpcionDeMenu {
     
     public IniciarComoInvitado(String s){
         titulomenu=s;
-        array_o = Registro.MenuString_to_MenuOptions(array_s);
-        menu_guest.opciones = array_o;
+        menu_guest.opciones.add(Registro.menu_generico.get("informacion pelicula"));
+        menu_guest.opciones.add(Registro.menu_generico.get("registrarse"));
     }
     
     @Override

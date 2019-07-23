@@ -18,8 +18,13 @@ public class Cliente extends Usuario{
 
     public Cliente(String usuario, String clave, String nombre, String email, boolean existe) {
         super(usuario, clave, "cliente", nombre, email, existe);
-        String a[] = {"informacion pelicula","comprar pelicula","reservar pelicula","ver informacion cuenta","actualizar saldo"};
-        this.menu_user = Registro.MenuString_to_MenuOptions(a);
+        //opciones  "informacion pelicula","comprar pelicula","reservar pelicula","ver informacion cuenta","actualizar saldo"
+        this.menu_user.add(Registro.menu_generico.get("informacion pelicula"));
+        this.menu_user.add(Registro.menu_generico.get("comprar pelicula"));
+        this.menu_user.add(Registro.menu_generico.get("reservar pelicula"));
+        this.menu_user.add(Registro.menu_generico.get("ver informacion cuenta"));
+        this.menu_user.add(Registro.menu_generico.get("actualizar saldo"));
+        this.menu_user.add(Registro.menu_generico.get("salir"));
     }
 
 }
