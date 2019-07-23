@@ -32,10 +32,6 @@ public class Administrator extends Usuario {
         Pelicula.delete(titulo);
     }
 
-    private void modifyTheaterType(Sala sala, String tipo) {
-        sala.setTipo(tipo);
-    }
-
     private void adminFuncionSala(Funcion funcion, Sala sala) {
         funcion.setSala(sala);
     }
