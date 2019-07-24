@@ -1,5 +1,5 @@
 package uiMain;
-import baseDeDatos.Registro;
+import baseDeDatos.Data;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,8 +12,8 @@ public class IniciarComoInvitado extends OpcionDeMenu {
     
     public IniciarComoInvitado(String s){
         titulomenu=s;
-        menu_guest.opciones.add(Registro.menu_generico.get("informacion pelicula"));
-        menu_guest.opciones.add(Registro.menu_generico.get("registrarse"));
+        menu_guest.opciones.add(Data.menu_generico.get("informacion pelicula"));
+        menu_guest.opciones.add(Data.menu_generico.get("registrarse"));
     }
     
     @Override

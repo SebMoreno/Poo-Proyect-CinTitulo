@@ -2,17 +2,13 @@ package uiMain;
 
 public class Salir extends OpcionDeMenu {
 
-    private final String titulomenu;
-
-    public Salir(String s) {
-        titulomenu = s;
-    }
+    private final String titulomenu = "Terminar Programa";
 
     public void ejecutar() {
         System.exit(0);
     }
 
     public String toString() {
-        return "Terminar programa";
+        return titulomenu;
     }
 }

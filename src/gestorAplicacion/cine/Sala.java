@@ -1,7 +1,7 @@
 package gestorAplicacion.cine;
 
-import static baseDeDatos.Registro.readTxt;
-import static baseDeDatos.Registro.writeTxt;
+import static baseDeDatos.Data.readTxt;
+import static baseDeDatos.Data.writeTxt;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

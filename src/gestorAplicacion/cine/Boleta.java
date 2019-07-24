@@ -1,7 +1,7 @@
  package gestorAplicacion.cine;
 
-import static baseDeDatos.Registro.readTxt;
-import static baseDeDatos.Registro.writeTxt;
+import static baseDeDatos.Data.readTxt;
+import static baseDeDatos.Data.writeTxt;
 import static gestorAplicacion.usuario.Cuenta.cuentasList;
 import gestorAplicacion.usuario.Cuenta;
 import java.util.HashMap;
