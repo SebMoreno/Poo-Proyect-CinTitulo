@@ -1,7 +1,6 @@
 package uiMain;
 
 import baseDeDatos.Data;
-import gestorAplicacion.cine.Pelicula;
 import gestorAplicacion.usuario.Usuario;
 
 public class Main {
@@ -15,6 +14,7 @@ public class Main {
         while (true) {
             menu.lanzarMenu();
         }
+        
     }
 
 }
