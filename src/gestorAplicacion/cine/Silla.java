@@ -4,7 +4,8 @@ import static baseDeDatos.Data.readTxt;
 import static baseDeDatos.Data.writeTxt;
 import java.util.HashMap;
 import java.util.Map;
-
+//clase que crea las sillas , necesaria para boleta , sala (por la matriz) y para generar la boleta
+//Estructuras:HashMap<String, String[]> sillasList,
 public class Silla {
 
     private final boolean vibrosound;
@@ -19,7 +20,7 @@ public class Silla {
 
     private final static HashMap<String, String[]> sillasList = new HashMap<>(); // key: idSilla     value: incremento, vibrosound, preferencial, ocupada, posicion, idSala
 
-    public static void RT() {
+    public static void RT() {////cada clase que tiene informacion en un archivo txt tiene este metodo para leer el respectivo archivoy guardarlo en su hashmap
         readTxt("sillas.txt", sillasList);
     }
 
@@ -35,7 +36,7 @@ public class Silla {
         posH = posicion.charAt(2);
     }
 
-    public Silla(Sala sala, int posV, int posH, boolean vibrosound, boolean preferencial, boolean ocupada) {
+    public Silla(Sala sala, int posV, int posH, boolean vibrosound, boolean preferencial, boolean ocupada) {//constructor al crear silla , tiene en cuenta el tipo para el incremento
         this.sala = sala;
         this.posV = posV;
         this.posH = posH;
@@ -97,7 +98,7 @@ public class Silla {
         return ocupada;
     }
 
-    public void setOcupada(boolean ocupada) {
+    public void setOcupada(boolean ocupada) {//al momento de comprar se llama este metodo para cambiar el booleano que determina eso
         this.ocupada = ocupada;
         String[] aux = sillasList.get(idSilla);
         aux[3] = Boolean.toString(ocupada);
