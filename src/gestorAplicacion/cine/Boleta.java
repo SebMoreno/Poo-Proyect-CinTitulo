@@ -53,6 +53,7 @@ public class Boleta {
         String[] valor = {dueño.getPropietario().getUsuario(), Integer.toString(funcion.getIdFuncion()), silla.getPosicion(), Integer.toString(this.precio)};
         boletasList.put(Integer.toString(idBoleta), valor);
         writeTxt("cuentas.txt", cuentasList);
+        silla.setOcupada(true);
     }
 
     public Cuenta getDueño() {
