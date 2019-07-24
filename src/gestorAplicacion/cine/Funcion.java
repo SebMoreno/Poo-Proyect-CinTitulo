@@ -15,7 +15,7 @@ public class Funcion {
     private final int idFuncion;
     private final static HashMap<String, String[]> funcionesList = new HashMap<>(); // key: idFuncion     value: idSala, tituloPelicula, hora, sillasOcupadas
 
-    public static void RT() {
+    public static void RT() {////cada clase que tiene informacion en un archivo txt tiene este metodo para leer el respectivo archivoy guardarlo en su hashmap
         readTxt("funciones.txt", funcionesList);
     }
 
