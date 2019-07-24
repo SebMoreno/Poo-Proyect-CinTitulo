@@ -40,7 +40,7 @@ public class Data {
         menu_generico.put("registrarse", new Registrarse());
         menu_generico.put("actualizar menu", new ActualizarMenu("Actualizar Menu"));
         menu_generico.put("editar pelicula", new EditarPelicula("Editar Pelicula"));
-        menu_generico.put("iniciar como invitado", new IniciarComoInvitado("Iniciar Como Invitado"));
+        menu_generico.put("iniciar como invitado", new IniciarComoInvitado());
         menu_generico.put("terminar programa", new Salir());
         menu_generico.put("añadir pelicula", new AñadirPelicula());
         menu_generico.put("eliminar pelicula", new EliminarPelicula());

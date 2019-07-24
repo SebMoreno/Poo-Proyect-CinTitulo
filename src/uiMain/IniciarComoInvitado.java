@@ -1,24 +1,14 @@
 package uiMain;
-import baseDeDatos.Data;
+
 import gestorAplicacion.usuario.Invitado;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class IniciarComoInvitado extends OpcionDeMenu {
-    private String titulomenu;
-    String [] array_s = {"informacion pelicula","registrarse"};
-    public ArrayList <OpcionDeMenu> array_o = new ArrayList <> ();
-    MenuDeConsola menu_guest = new MenuDeConsola(array_o);
-    Scanner input = new Scanner(System.in);
-    
-    public IniciarComoInvitado(String s){
-        titulomenu=s;
-        menu_guest.opciones.add(Data.menu_generico.get("informacion pelicula"));
-        menu_guest.opciones.add(Data.menu_generico.get("registrarse"));
-    }
-    
+
+    private String titulomenu = "Iniciar como invitado";
+
     @Override
     public void ejecutar() {
+        Main.usuarioActivo = new Invitado();
         Main.menu = Invitado.getMenu();
     }
 
@@ -26,5 +16,5 @@ public class IniciarComoInvitado extends OpcionDeMenu {
     public String toString() {
         return titulomenu;
     }
-    
+
 }
