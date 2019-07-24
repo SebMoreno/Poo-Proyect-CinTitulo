@@ -2,7 +2,8 @@ package uiMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+//clase genera los objetos menu de consola
+//ESTRUCTURA:ArrayList<OpcionDeMenu> opciones(necesaria para acceder  las opciones de menu de un usuario especifico)
 public class MenuDeConsola {
 
     ArrayList<OpcionDeMenu> opciones = new ArrayList<>();
@@ -15,7 +16,7 @@ public class MenuDeConsola {
         opciones.add(option);
     }
 
-    public void lanzarMenu() {
+    public void lanzarMenu() {// metodo que imprime el array y que llama a el merodo ejecutar de cada opcion de menu
         Scanner scan = new Scanner(System.in);
         System.out.println("=========================================");
 

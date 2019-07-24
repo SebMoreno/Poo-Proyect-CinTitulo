@@ -1,5 +1,5 @@
 package uiMain;
-
+//clase abstracta de donde heredan todas las opciones de menu
 public abstract class OpcionDeMenu {
 
 	public abstract void ejecutar ();//clase abstracta de todos los menus
