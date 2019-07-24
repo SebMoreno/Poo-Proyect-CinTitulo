@@ -76,6 +76,10 @@ public class Silla {
     public Sala getSala() {
         return sala;
     }
+    
+    public static HashMap <String, String[]> getSillasList(){
+        return sillasList;
+    }
 
     public boolean isOcupada() {
         return ocupada;

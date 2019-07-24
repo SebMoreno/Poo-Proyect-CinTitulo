@@ -1,6 +1,8 @@
 package uiMain;
+import gestorAplicacion.cine.Boleta;
 import gestorAplicacion.cine.Silla;
 import java.util.*;
+import gestorAplicacion.cine.Sala;
 
 public class ComprarBoleta extends OpcionDeMenu {
     private String titulomenu;
@@ -57,10 +59,26 @@ public class ComprarBoleta extends OpcionDeMenu {
         String funcion= funciones.get(numero2-1);
         
         String sala= gestorAplicacion.cine.Funcion.getFuncionesList().get(funcion)[0];
-        String arreglo = gestorAplicacion.cine.Sala.getSalasList().get(sala)[5];//aqui me perdi 
-        
-        
-        
+        String []info_sala = gestorAplicacion.cine.Sala.getSalasList().get(sala);
+        //String arreglo = gestorAplicacion.cine.Sala.getSalasList().get(sala)[5];//aqui me perdi 
+        String matriz[][] = new String [10][10];
+        int c = 0;
+        int f = 0;
+        for (int index=5; index<info_sala.length; index++){
+            matriz[f][c]=info_sala[index];
+            c++;
+            if (c>9){
+                c=0;
+                f++;
+            }
+        }
+        System.out.println("Seleccione una silla disponible, escriba la identificación de la silla ");
+        System.out.println(matriz);
+        String silla = entrada.next();
+        String user = IniciarSesion.getUsuarioActivo();
+        int precio_sala = Integer.valueOf(gestorAplicacion.cine.Sala.getSalasList().get(sala)[0]);
+        int precio_silla = Integer.valueOf(gestorAplicacion.cine.Silla.getSillasList().get(silla)[0]);
+        int precio_total = precio_sala+precio_silla;
         
     }
     

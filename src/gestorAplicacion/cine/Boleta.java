@@ -43,7 +43,15 @@ public class Boleta {
 
     }
 
+    public static HashMap<String, String[]> getBoletasList(){
+        return boletasList;
+    }
+    
     public Funcion getFuncion() {
         return funcion;
+    }
+    
+    public int getPrecio(){
+        return precio;
     }
 }
