@@ -72,10 +72,10 @@ public class Data {
 
         ArrayList<OpcionDeMenu> options = new ArrayList<>();
         options.add(Data.menu_generico.get("informacion pelicula"));
-        options.add(Data.menu_generico.get("comprar boleta"));
-        options.add(Data.menu_generico.get("reservar boleta"));
+        options.add(Data.menu_generico.get("comprar pelicula"));
+        options.add(Data.menu_generico.get("reservar pelicula"));
         options.add(Data.menu_generico.get("ver informacion cuenta"));
-        options.add(Data.menu_generico.get("recargar"));
+        options.add(Data.menu_generico.get("actualizar saldo"));
         options.add(Data.menu_generico.get("terminar programa"));
         Cliente.setMenu(new MenuDeConsola(options));
 
