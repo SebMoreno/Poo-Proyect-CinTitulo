@@ -30,8 +30,8 @@ public class ComprarBoleta extends OpcionDeMenu {
            
            
         }*/
-        Scanner entrada = new Scanner(System.in);
         System.out.println("Escoja una pelicula");
+        Scanner entrada = new Scanner(System.in);
         int j =0;
         for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Pelicula.getPelisList().entrySet()) {
                 System.out.println("            " +(j+1) +entry.getKey() + "          ");
