@@ -1,9 +1,11 @@
- package gestorAplicacion.cine;
+package gestorAplicacion.cine;
 
 import static baseDeDatos.Data.readTxt;
 import static baseDeDatos.Data.writeTxt;
+import gestorAplicacion.usuario.Cliente;
 import static gestorAplicacion.usuario.Cuenta.cuentasList;
 import gestorAplicacion.usuario.Cuenta;
+import gestorAplicacion.usuario.Usuario;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,8 +18,22 @@ public class Boleta {
     private final int precio;
     private final static HashMap<String, String[]> boletasList = new HashMap<>(); // key: idBoleta     value: usuario, idFuncion, posicionSilla, precio
 
-    public static void RT(){
+    public static void RT() {
         readTxt("cuentas.txt", cuentasList);
+    }
+
+    public Boleta(String idBoleta) {
+        String usuario = boletasList.get(idBoleta)[0];
+        String clave= Usuario.getUsersList().get(usuario)[0];
+        String nombre = Usuario.getUsersList().get(usuario)[2];
+        String email = Usuario.getUsersList().get(usuario)[3];
+        Cliente propietario = new Cliente(usuario, clave, nombre, email, true);
+        dueño = new Cuenta(propietario, true);
+        funcion = new Funcion(boletasList.get(idBoleta)[1]);
+        this.idBoleta = Integer.valueOf(idBoleta);
+        String posicionSilla = boletasList.get(idBoleta)[2];
+        silla = funcion.getSala().getSilla(posicionSilla.charAt(0), posicionSilla.charAt(2));
+        precio = Integer.valueOf(boletasList.get(idBoleta)[3]);
     }
 
     public Boleta(Cuenta dueño, Funcion funcion, Silla silla) {
@@ -43,15 +59,15 @@ public class Boleta {
 
     }
 
-    public static HashMap<String, String[]> getBoletasList(){
+    public static HashMap<String, String[]> getBoletasList() {
         return boletasList;
     }
-    
+
     public Funcion getFuncion() {
         return funcion;
     }
-    
-    public int getPrecio(){
+
+    public int getPrecio() {
         return precio;
     }
 }

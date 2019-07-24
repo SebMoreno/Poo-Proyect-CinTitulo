@@ -9,7 +9,7 @@ import uiMain.MenuDeConsola;
 public class Cliente extends Usuario {
 
     private final Cuenta cuenta;
-    static MenuDeConsola menu;   
+    static MenuDeConsola menu;
 
     public Cliente(String usuario, String clave) {
         this(usuario, clave, "NA");
@@ -24,10 +24,16 @@ public class Cliente extends Usuario {
         this.cuenta = new Cuenta(this, existe);
         //opciones  "informacion pelicula","comprar pelicula","reservar pelicula","ver informacion cuenta","actualizar saldo"
     }
-    public static void setMenu(MenuDeConsola m){
+
+    public static void setMenu(MenuDeConsola m) {
         menu = m;
     }
-public static MenuDeConsola getMenu() {
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public static MenuDeConsola getMenu() {
         return menu;
     }
 }

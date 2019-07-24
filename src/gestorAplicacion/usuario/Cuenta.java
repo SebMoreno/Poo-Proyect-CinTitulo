@@ -16,7 +16,7 @@ public class Cuenta {
         readTxt("cuentas.txt", cuentasList);
     }
 
-    protected Cuenta(Cliente propietario, boolean existe) {
+    public Cuenta(Cliente propietario, boolean existe) {
         this.propietario = propietario;
         if (existe) {
             this.saldo = Integer.valueOf(cuentasList.get(propietario.getUsuario())[0]);

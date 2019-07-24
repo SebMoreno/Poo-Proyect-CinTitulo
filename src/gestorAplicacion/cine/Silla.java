@@ -19,8 +19,20 @@ public class Silla {
 
     private final static HashMap<String, String[]> sillasList = new HashMap<>(); // key: idSilla     value: incremento, vibrosound, preferencial, ocupada, posicion, idSala
 
-    public static void RT(){
+    public static void RT() {
         readTxt("sillas.txt", sillasList);
+    }
+
+    public Silla(String idSilla, Sala sala) {//Constructor para crear objetos que ya estan en los Txt
+        this.idSilla = Integer.valueOf(idSilla);
+        this.sala = sala;
+        incremento = Short.valueOf(sillasList.get(idSilla)[0]);
+        vibrosound = Boolean.parseBoolean(sillasList.get(idSilla)[1]);
+        preferencial = Boolean.parseBoolean(sillasList.get(idSilla)[2]);
+        ocupada = Boolean.parseBoolean(sillasList.get(idSilla)[3]);
+        posicion = sillasList.get(idSilla)[4];
+        posV = posicion.charAt(0);
+        posH = posicion.charAt(2);
     }
 
     public Silla(Sala sala, int posV, int posH, boolean vibrosound, boolean preferencial, boolean ocupada) {
@@ -76,8 +88,8 @@ public class Silla {
     public Sala getSala() {
         return sala;
     }
-    
-    public static HashMap <String, String[]> getSillasList(){
+
+    public static HashMap<String, String[]> getSillasList() {
         return sillasList;
     }
 

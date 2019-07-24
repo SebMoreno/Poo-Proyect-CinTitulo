@@ -38,14 +38,7 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
             String[] aux = {clave, rol, nombre, email};
             usersList.put(usuario, aux);
             writeTxt("usuarios.txt", usersList);
-        }/*
-        if (rol.equals("admin")) {
-
-        } else if (rol.equals(rol.equals("cliente"))) {
-
-        } else {
-
-        }*/
+        }
     }
 
     public String getUsuario() {

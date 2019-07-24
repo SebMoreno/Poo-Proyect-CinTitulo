@@ -1,98 +1,70 @@
 package uiMain;
+
 import gestorAplicacion.cine.Boleta;
-import gestorAplicacion.cine.Silla;
-import java.util.*;
+import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Sala;
+import gestorAplicacion.usuario.Cliente;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Scanner;
 
 public class ComprarBoleta extends OpcionDeMenu {
+
     private String titulomenu;
     private String titulopelicula;
     private ArrayList<String> funciones = new ArrayList<String>();
     private ArrayList<String> peliculas = new ArrayList<String>();
-    
-    public void ejecutar(){
-        /*String sala = gestorAplicacion.cine.Pelicula.getPelisList().get(titulopelicula)[4];
-        String precio = gestorAplicacion.cine.Sala.getSalasList().get(sala) [0];
-        System.out.println("El precio de la pelicula es "+precio);
-        String nombre =uiMain.IniciarSesion.getUsuarioActivo();
-        String saldouser= gestorAplicacion.usuario.Cuenta.getCuentasList().get(nombre) [0];
-        int precioentero = Integer.parseInt(precio);
-        int saldouserentero = Integer.parseInt(saldouser);
-        
-        if (precioentero > saldouserentero){
-            System.out.println("saldo insuficiente");
-            
-        }
-        
-        else{
-           System.out.println("Escoja silla"); 
-           
-           
-           
-        }*/
-        System.out.println("Escoja una pelicula");
+
+    @Override
+    public void ejecutar() {
+        System.out.println("Escoja una pelicula\nEscribe el titulo de la pelicula exactamente como aparece");
+        imprimirPeliculas();
         Scanner entrada = new Scanner(System.in);
-        int j =0;
-        for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Pelicula.getPelisList().entrySet()) {
-                System.out.println("            " +(j+1) +entry.getKey() + "          ");
-                j++;
-                peliculas.add(entry.getKey());
-        }
-        int numero=entrada.nextInt();
-        String pelicula=peliculas.get(numero-1);
+        String titulo = entrada.next();
         System.out.println("Seleccione el numero de la funcion deseada");
-        int i = 0;
-        for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Funcion.getFuncionesList().entrySet()) {
-            if ( (entry.getValue()[1]).equals(pelicula)){
-                funciones.add(entry.getKey());
-                System.out.println("            " + (i+1)+entry.getKey() + "          ");
-                System.out.println("Sala: " + entry.getValue()[0] + "         " + "Titulo pelicula: " + entry.getValue()[1]);
-                System.out.println("Hora: " + entry.getValue()[2] + "           " + "Sillas ocupadas: " + entry.getValue()[3]);
-                i++;
-                funciones.add(entry.getKey());
-            }}
-        int numero2=entrada.nextInt();
-        String funcion= funciones.get(numero2-1);
-        
-        String sala= gestorAplicacion.cine.Funcion.getFuncionesList().get(funcion)[0];
-        String []info_sala = gestorAplicacion.cine.Sala.getSalasList().get(sala);
-        //String arreglo = gestorAplicacion.cine.Sala.getSalasList().get(sala)[5];//aqui me perdi 
-        String matriz[][] = new String [10][10];
-        int c = 0;
-        int f = 0;
-        for (int index=5; index<info_sala.length; index++){
-            matriz[f][c]=info_sala[index];
-            c++;
-            if (c>9){
-                c=0;
-                f++;
+        for (Map.Entry<String, String[]> entry : Funcion.getFuncionesList().entrySet()) {
+            if ((entry.getValue()[1]).equals(titulo)) {
+                System.out.println("************" + "Funcion " + entry.getKey() + " ************");
+                System.out.println("Sala: " + entry.getValue()[0]);
+                System.out.println("Titulo pelicula: " + entry.getValue()[1]);
+                System.out.println("Hora: " + entry.getValue()[2]);
+                System.out.println("Sillas ocupadas: " + entry.getValue()[3]);
             }
         }
-        System.out.println("Seleccione una silla disponible, escriba la identificación de la silla ");
-        System.out.println(matriz);
-        String silla = entrada.next();
-        String user = Main.usuarioActivo.getUsuario();
-        int precio_sala = Integer.valueOf(gestorAplicacion.cine.Sala.getSalasList().get(sala)[0]);
-        int precio_silla = Integer.valueOf(gestorAplicacion.cine.Silla.getSillasList().get(silla)[0]);
-        int precio_total = precio_sala+precio_silla;
-        String [] value_boleta = {user,funcion,silla,Integer.toString(precio_total)};
-        String idBoleta = "";
-        String [] value = new String [gestorAplicacion.usuario.Cuenta.getCuentasList().get(user).length+1];
-        for(Map.Entry<String, String[]> entry : gestorAplicacion.cine.Boleta.getBoletasList().entrySet()){
-            String [] aux = entry.getValue();
-            if (aux.equals(value_boleta)){
-                idBoleta = entry.getKey();
-                value = entry.getValue();
-            }
+        System.out.println("Escoja una funcion\nEscribe el numero de la funcion");
+        String funcion = entrada.next();
+        Funcion F = new Funcion(funcion);
+        Sala sala = new Sala(Funcion.getFuncionesList().get(funcion)[0]);
+        System.out.println(sala);
+        System.out.println("\nElija la silla que desee");
+        System.out.println("El significado de las letras es:");
+        System.out.println("P: premium, es decir, vibrosound y preferenciales a la vez\n"
+                + "        v: vibrosound\n"
+                + "        p: preferenciales\n"
+                + "        n: normales\n"
+                + "        \n"
+                + "        Acompañada a esta letra siempre estará o una L(silla libre) o una O(silla ocupada)");
+        System.out.println("\n");
+        System.out.println("Ingrese la coordenada vertical");
+        int posicionV = entrada.nextInt();
+        System.out.println("Ingrese la coordenada horizontal");
+        int posicionH = entrada.nextInt();
+        Cliente cliente = (Cliente) Main.usuarioActivo;
+        int precioBoleta = sala.getPrecio() + sala.getSilla(posicionV, posicionH).getIncremento();
+        if (cliente.getCuenta().getSaldo() >= precioBoleta) {
+            Boleta boleta = new Boleta(cliente.getCuenta(), F, sala.getSilla(posicionV, posicionH));
+            System.out.println("Su compra fue realizada con éxito");
+        } else {
+            System.out.println("Saldo insuficiente");
         }
-        int new_saldo = Integer.valueOf(gestorAplicacion.usuario.Cuenta.getCuentasList().get(user)[0]) - precio_total;
-        value[0] = Integer.toString(new_saldo);
-        value[gestorAplicacion.usuario.Cuenta.getCuentasList().get(user).length] = idBoleta;
-        gestorAplicacion.usuario.Cuenta.getCuentasList().put(user,value);
     }
-    
-    
-    public String toString(){
+
+    @Override
+    public String toString() {
         return titulomenu;
+    }
+
+    private void imprimirPeliculas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

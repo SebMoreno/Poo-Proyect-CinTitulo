@@ -29,7 +29,7 @@ public class IniciarSesion extends OpcionDeMenu {
         String password = scan.next();
         while (!Usuario.getUsersList().get(usuario)[0].equals(password)) {
             System.out.print("Contraseña inválida\nIngrese la contraseña nuevamente: ");
-            usuario = scan.next();
+            password = scan.next();
         }
         String rol = Usuario.getUsersList().get(usuario)[1];
         if (rol.equals("cliente")) {

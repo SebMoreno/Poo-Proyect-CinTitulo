@@ -13,10 +13,23 @@ public class Sala {
     private final String tipo;
     private final int capacidad;
     final Silla[][] sillas;
-    private final static HashMap<String, String[]> salasList = new HashMap<>(); // key: idSala     value: precio, tipo, capacidad, tamañoV, tamañoH idSilla[0][0], idSilla [0][1], ... , idSilla[n][n]
+    private final static HashMap<String, String[]> salasList = new HashMap<>(); // key: idSala     value: precio, tipo, capacidad, tamañoV, tamañoH, idSilla[0][0], idSilla [0][1], ... , idSilla[n][n]
 
     public static void RT() {
         readTxt("salas.txt", salasList);
+    }
+
+    public Sala(String idSala) {//Constructor para crear objetos que ya estan en los Txt
+        this.idSala = Integer.valueOf(idSala);
+        precio = Integer.valueOf(salasList.get(idSala)[0]);
+        tipo = salasList.get(idSala)[1];
+        capacidad = Integer.valueOf(salasList.get(idSala)[2]);
+        sillas = new Silla[Integer.valueOf(salasList.get(idSala)[3])][Integer.valueOf(salasList.get(idSala)[4])];
+        for (int i = 0; i < Integer.valueOf(salasList.get(idSala)[3]); i++) {
+            for (int j = 0; j < Integer.valueOf(salasList.get(idSala)[4]); j++) {
+                sillas[i][j] = new Silla(salasList.get(idSala)[i*(Integer.valueOf(salasList.get(idSala)[4]))+j+5], this);
+            }
+        }
     }
 
     public Sala(String tipo, int tamañoVertical, int tamañoHorizontal, int filasVibrosound, int filasPreferencial) {
@@ -167,7 +180,10 @@ public class Sala {
     @Override
     public String toString() {
         String sala = "";
-
+        for (int i = 0; i < this.sillas.length; i++) {
+            System.out.print(i + "  ");
+        }
+        System.out.println();
         for (int i = 0; i < this.sillas.length; i++) {
             for (int j = 0; j < this.sillas[0].length; j++) {
                 if (this.getSillas()[i][j].isOcupada()) {
@@ -193,7 +209,7 @@ public class Sala {
                     }
                 }
             }
-            sala += "\n";
+            sala += "\n" + i;
         }
         return sala;
     }

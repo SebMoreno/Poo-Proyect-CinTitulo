@@ -14,8 +14,17 @@ public class Funcion {
     private final int idFuncion;
     private final static HashMap<String, String[]> funcionesList = new HashMap<>(); // key: idFuncion     value: idSala, tituloPelicula, hora, sillasOcupadas
 
-    public static void RT(){
+    public static void RT() {
         readTxt("funciones.txt", funcionesList);
+    }
+
+    public Funcion(String idFuncion) {//Constructor para crear objetos que ya estan en los Txt
+        sala = new Sala(funcionesList.get(idFuncion)[0]);
+        pelicula = new Pelicula(funcionesList.get(idFuncion)[1]);
+        hora = funcionesList.get(idFuncion)[2];
+        sillasOcupadas = Short.valueOf(funcionesList.get(idFuncion)[3]);
+        this.idFuncion = Integer.valueOf(idFuncion);
+
     }
 
     public Funcion(Sala sala, String hora, Pelicula pelicula) {
@@ -74,12 +83,12 @@ public class Funcion {
     public static HashMap<String, String[]> getFuncionesList() {
         return funcionesList;
     }
-    public static void deleteFuncion(int id){
-        if(funcionesList.containsKey(id)){
+
+    public static void deleteFuncion(int id) {
+        if (funcionesList.containsKey(id)) {
             funcionesList.remove(id);
             System.out.println("La función ha sido eliminada exitosamente.");
-        }
-        else{
+        } else {
             System.out.println("No se ha enconrado ninguna fuinción\nNo se han realizado cambios.");
         }
     }

@@ -11,11 +11,19 @@ public class Pelicula {
     private final String titulo;
     private final String duracion;
     private final String idioma;
-    private final static HashMap<String, String[]> pelisList = new HashMap<>(); // key: titulo     value: genero, clasificacion, duracion, idioma, sala
+    private final static HashMap<String, String[]> pelisList = new HashMap<>(); // key: titulo     value: genero, clasificacion, duracion, idioma
 
     public static void RT() {
         readTxt("peliculas.txt", pelisList);
-    } 
+    }
+
+    public Pelicula(String titulo) { //Constructor para crear objetos que ya estan en los Txt
+        genero = pelisList.get(titulo)[0];
+        clasificacion = pelisList.get(titulo)[1];
+        this.titulo = titulo;
+        duracion = pelisList.get(titulo)[2];
+        idioma = pelisList.get(titulo)[3];
+    }
 
     public Pelicula(String titulo, String genero, String clasificacion, String duracion, String idioma) {
         this.genero = genero;
