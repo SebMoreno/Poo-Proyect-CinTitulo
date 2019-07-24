@@ -54,6 +54,7 @@ public class Boleta {
         boletasList.put(Integer.toString(idBoleta), valor);
         Cuenta.add_id(dueño.getPropietario().getUsuario(),Integer.toString(this.idBoleta));
         writeTxt("cuentas.txt", cuentasList);
+        silla.setOcupada(true);
     }
 
     public Cuenta getDueño() {

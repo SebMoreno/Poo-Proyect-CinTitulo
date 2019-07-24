@@ -35,10 +35,18 @@ public class ComprarBoleta extends OpcionDeMenu {
                 + "        \n"
                 + "        Acompañada a esta letra siempre estará o una L(silla libre) o una O(silla ocupada)");
         System.out.println("\n");
-        System.out.println("Ingrese la coordenada vertical");
+        System.out.print("Ingrese la coordenada vertical: ");
         int posicionV = entrada.nextInt();
-        System.out.println("Ingrese la coordenada horizontal");
+        System.out.print("Ingrese la coordenada horizontal: ");
         int posicionH = entrada.nextInt();
+        while (F.getSala().getSilla(posicionV, posicionH).isOcupada()) {
+            System.out.println("La silla está ocupada, Intente otra por favor");
+            System.out.print("Ingrese la coordenada vertical: ");
+            posicionV = entrada.nextInt();
+            System.out.print("Ingrese la coordenada horizontal: ");
+            posicionH = entrada.nextInt();
+        }
+
         Cliente cliente = (Cliente) Main.usuarioActivo;
         int precioBoleta = F.getSala().getPrecio() + F.getSala().getSilla(posicionV, posicionH).getIncremento();
         if (cliente.getCuenta().getSaldo() >= precioBoleta) {

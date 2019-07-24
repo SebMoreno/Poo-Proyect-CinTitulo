@@ -99,6 +99,9 @@ public class Silla {
 
     public void setOcupada(boolean ocupada) {
         this.ocupada = ocupada;
+        String[] aux = sillasList.get(idSilla);
+        aux[3] = Boolean.toString(ocupada);
+        sillasList.put(Integer.toString(idSilla), aux);
     }
 
     public String getPosicion() {
