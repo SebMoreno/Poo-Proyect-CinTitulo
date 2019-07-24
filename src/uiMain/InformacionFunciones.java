@@ -17,12 +17,16 @@ public class InformacionFunciones extends OpcionDeMenu {
     }
 
     static void imprimirFunciones() {
-        for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Funcion.getFuncionesList().entrySet()) {
-            System.out.println("************" + "Funcion " + entry.getKey() + "************");
-            System.out.println("Sala: " + entry.getValue()[0]);
-            System.out.println("Titulo pelicula: " + entry.getValue()[1]);
-            System.out.println("Hora: " + entry.getValue()[2]);
-            System.out.println("Sillas ocupadas: " + entry.getValue()[3]);
+        if (!gestorAplicacion.cine.Funcion.getFuncionesList().isEmpty()) {
+            for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Funcion.getFuncionesList().entrySet()) {
+                System.out.println("************" + "Funcion " + entry.getKey() + "************");
+                System.out.println("Sala: " + entry.getValue()[0]);
+                System.out.println("Titulo pelicula: " + entry.getValue()[1]);
+                System.out.println("Hora: " + entry.getValue()[2]);
+                System.out.println("Sillas ocupadas: " + entry.getValue()[3]);
+            }
+        } else {
+            System.out.println("No hay funciones ahora mismo");
         }
     }
 }

@@ -18,12 +18,16 @@ public class Informacionpelicula extends OpcionDeMenu {
     }
 
     static void imprimirPeliculas() {
-        for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Pelicula.getPelisList().entrySet()) {
-            System.out.println("************" + entry.getKey() + "************");
-            System.out.println("genero: " + entry.getValue()[0]);
-            System.out.println("clasificación: " + entry.getValue()[1]);
-            System.out.println("duracion: " + entry.getValue()[2]);
-            System.out.println("idioma: " + entry.getValue()[3]);
+        if (!gestorAplicacion.cine.Pelicula.getPelisList().isEmpty()) {
+            for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Pelicula.getPelisList().entrySet()) {
+                System.out.println("************" + entry.getKey() + "************");
+                System.out.println("genero: " + entry.getValue()[0]);
+                System.out.println("clasificación: " + entry.getValue()[1]);
+                System.out.println("duracion: " + entry.getValue()[2]);
+                System.out.println("idioma: " + entry.getValue()[3]);
+            }
+        } else {
+            System.out.println("No hay peliculas ahora mismo");
         }
     }
 
