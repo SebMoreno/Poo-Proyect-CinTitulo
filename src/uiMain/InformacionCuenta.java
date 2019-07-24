@@ -12,8 +12,9 @@ public class InformacionCuenta extends OpcionDeMenu {
 
         for (Map.Entry<String, String[]> entry : gestorAplicacion.usuario.Usuario.getUsersList().entrySet()) {
                 System.out.println("            " + entry.getKey() + "          ");
-                System.out.println("genero: " + entry.getValue()[0] + "         " + "clasificación: " + entry.getValue()[1]);
-                System.out.println("duración: " + entry.getValue()[2] + "           " + "idioma: " + entry.getValue()[3]);
+                System.out.println("Usuario: " + entry.getValue()[0] + "         " + "clave: " + entry.getValue()[1]);
+                System.out.println("rol: " + entry.getValue()[2] + "           " + "nombre: " + entry.getValue()[3]);
+                System.out.println("e-mail: " + entry.getValue()[4]);
             }
 
     }
