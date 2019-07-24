@@ -27,7 +27,7 @@ public class Sala {
         sillas = new Silla[Integer.valueOf(salasList.get(idSala)[3])][Integer.valueOf(salasList.get(idSala)[4])];
         for (int i = 0; i < Integer.valueOf(salasList.get(idSala)[3]); i++) {
             for (int j = 0; j < Integer.valueOf(salasList.get(idSala)[4]); j++) {
-                sillas[i][j] = new Silla(salasList.get(idSala)[i*(Integer.valueOf(salasList.get(idSala)[4]))+j+5], this);
+                sillas[i][j] = new Silla(salasList.get(idSala)[i * (Integer.valueOf(salasList.get(idSala)[4])) + j + 5], this);
             }
         }
     }
@@ -180,15 +180,16 @@ public class Sala {
     @Override
     public String toString() {
         String sala = "";
+        System.out.print("  ");
         for (int i = 0; i < this.sillas.length; i++) {
             System.out.print(i + "  ");
         }
         System.out.println();
         for (int i = 0; i < this.sillas.length; i++) {
+            sala += i + " ";
             for (int j = 0; j < this.sillas[0].length; j++) {
                 if (this.getSillas()[i][j].isOcupada()) {
                     if (this.getSillas()[i][j].isPreferencial() && this.getSillas()[i][j].isVibrosound()) {
-                        sala += "";
                         sala += "PO ";
                     } else if (!this.getSillas()[i][j].isPreferencial() && this.getSillas()[i][j].isVibrosound()) {
                         sala += "vO ";
@@ -209,7 +210,7 @@ public class Sala {
                     }
                 }
             }
-            sala += "\n" + i;
+            sala += "\n";
         }
         return sala;
     }

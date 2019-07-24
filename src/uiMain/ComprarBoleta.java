@@ -16,13 +16,25 @@ public class ComprarBoleta extends OpcionDeMenu {
 
     @Override
     public void ejecutar() {
-        System.out.println("Escoja una pelicula\nEscribe el titulo de la pelicula exactamente como aparece");
         Informacionpelicula.imprimirPeliculas();
+        System.out.print("Escoja una pelicula\nEscribe el titulo de la pelicula exactamente como aparece: ");
         Scanner entrada = new Scanner(System.in);
         String titulo = entrada.next();
-        System.out.println("Seleccione el numero de la funcion deseada");
-        InformacionFunciones.imprimirFunciones();
-        System.out.println("Escoja una funcion\nEscribe el numero de la funcion");
+        int i = 0;
+        for (Map.Entry<String, String[]> entry : Funcion.getFuncionesList().entrySet()) {
+            if (entry.getValue()[1].equals(titulo)) {
+                System.out.println("************" + "Funcion " + entry.getKey() + "************");
+                System.out.println("Sala: " + entry.getValue()[0]);
+                System.out.println("Titulo pelicula: " + entry.getValue()[1]);
+                System.out.println("Hora: " + entry.getValue()[2]);
+                System.out.println("Sillas ocupadas: " + entry.getValue()[3]);
+                i++;
+            }
+        }
+        if (i == 0) {
+            System.out.println("No hay funciones con esa pelicula ahora mismo");
+        }
+        System.out.print("Escoja una funcion\nEscribe el numero de la funcion: ");
         String funcion = entrada.next();
         Funcion F = new Funcion(funcion);
         System.out.println(F.getSala());

@@ -99,7 +99,7 @@ public class Silla {
 
     public void setOcupada(boolean ocupada) {
         this.ocupada = ocupada;
-        String[] aux = sillasList.get(idSilla);
+        String[] aux = sillasList.get(Integer.toString(idSilla));
         aux[3] = Boolean.toString(ocupada);
         sillasList.put(Integer.toString(idSilla), aux);
     }
