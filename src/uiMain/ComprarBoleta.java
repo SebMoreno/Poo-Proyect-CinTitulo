@@ -5,6 +5,7 @@ import gestorAplicacion.cine.Boleta;
 import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Sala;
 import gestorAplicacion.usuario.Cliente;
+import gestorAplicacion.usuario.Cuenta;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
@@ -43,6 +44,9 @@ public class ComprarBoleta extends OpcionDeMenu {
         if (cliente.getCuenta().getSaldo() >= precioBoleta) {
             Boleta boleta = new Boleta(cliente.getCuenta(), F, F.getSala().getSilla(posicionV, posicionH));
             Data.writeTxt("boletas.txt", Boleta.getBoletasList());
+            int saldo_nuevo = cliente.getCuenta().getSaldo() - precioBoleta;
+            cliente.getCuenta().setSaldo(saldo_nuevo);
+            Data.writeTxt("cuentas.txt", Cuenta.getCuentasList());
             System.out.println("Su compra fue realizada con éxito");
         } else {
             System.out.println("Saldo insuficiente");
