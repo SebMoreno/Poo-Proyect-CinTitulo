@@ -79,7 +79,20 @@ public class ComprarBoleta extends OpcionDeMenu {
         int precio_sala = Integer.valueOf(gestorAplicacion.cine.Sala.getSalasList().get(sala)[0]);
         int precio_silla = Integer.valueOf(gestorAplicacion.cine.Silla.getSillasList().get(silla)[0]);
         int precio_total = precio_sala+precio_silla;
-        
+        String [] value_boleta = {user,funcion,silla,Integer.toString(precio_total)};
+        String idBoleta = "";
+        String [] value = new String [gestorAplicacion.usuario.Cuenta.getCuentasList().get(user).length+1];
+        for(Map.Entry<String, String[]> entry : gestorAplicacion.cine.Boleta.getBoletasList().entrySet()){
+            String [] aux = entry.getValue();
+            if (aux.equals(value_boleta)){
+                idBoleta = entry.getKey();
+                value = entry.getValue();
+            }
+        }
+        int new_saldo = Integer.valueOf(gestorAplicacion.usuario.Cuenta.getCuentasList().get(user)[0]) - precio_total;
+        value[0] = Integer.toString(new_saldo);
+        value[gestorAplicacion.usuario.Cuenta.getCuentasList().get(user).length] = idBoleta;
+        gestorAplicacion.usuario.Cuenta.getCuentasList().put(user,value);
     }
     
     
