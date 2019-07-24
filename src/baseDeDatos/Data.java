@@ -1,3 +1,4 @@
+//en este paquete esta toda la capa de persistencia y menu del programa (autores  :Cristian mejia , Sebastian Moreno)
 package baseDeDatos;
 
 import gestorAplicacion.cine.*;

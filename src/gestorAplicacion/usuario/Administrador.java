@@ -1,3 +1,4 @@
+//en este paquete se maneja todas las clses con respecto al usuario(Autores : todo el equipo)
 package gestorAplicacion.usuario;
 
 import gestorAplicacion.cine.Funcion;

@@ -1,3 +1,5 @@
+//clase de las opciones y se encuentra la clase principal main , toda la ligadura dinamica esta aqui (Autores : todo el equipo)
+
 package uiMain;
 
 import gestorAplicacion.cine.Pelicula;

@@ -1,3 +1,4 @@
+//en este paquete se maneja todas las clses con respecto al cine (Autores : todo el equipo)
 package gestorAplicacion.cine;
 
 import static baseDeDatos.Data.readTxt;
