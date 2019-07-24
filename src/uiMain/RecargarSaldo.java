@@ -1,6 +1,6 @@
 package uiMain;
-import static baseDeDatos.Registro.readTxt;
-import static baseDeDatos.Registro.writeTxt;
+import static baseDeDatos.Data.readTxt;
+import static baseDeDatos.Data.writeTxt;
 import java.util.Scanner;
 
 public class RecargarSaldo extends OpcionDeMenu {

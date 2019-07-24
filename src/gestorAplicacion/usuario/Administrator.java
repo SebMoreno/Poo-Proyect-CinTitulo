@@ -1,25 +1,10 @@
 package gestorAplicacion.usuario;
 
-import baseDeDatos.Registro;
 import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Pelicula;
 import gestorAplicacion.cine.Sala;
-import static gestorAplicacion.usuario.Usuario.menu;
-import java.util.ArrayList;
-import uiMain.MenuDeConsola;
-import uiMain.OpcionDeMenu;
 
 public class Administrator extends Usuario {
-
-    static {
-        ArrayList<OpcionDeMenu> options = new ArrayList<>();
-        options.add(Registro.menu_generico.get("añadir pelicula"));
-        options.add(Registro.menu_generico.get("eliminar pelicula"));
-        options.add(Registro.menu_generico.get("crear funcion"));
-        options.add(Registro.menu_generico.get("eliminar funcion"));
-        options.add(Registro.menu_generico.get("terminar programa"));
-        menu = new MenuDeConsola(options);
-    }
 
     public Administrator(String usuario, String clave) {
         this(usuario, clave, "NA");

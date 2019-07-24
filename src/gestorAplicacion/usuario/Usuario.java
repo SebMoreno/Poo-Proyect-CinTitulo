@@ -1,8 +1,8 @@
 package gestorAplicacion.usuario;
 
-import baseDeDatos.Registro;
-import static baseDeDatos.Registro.readTxt;
-import static baseDeDatos.Registro.writeTxt;
+import baseDeDatos.Data;
+import static baseDeDatos.Data.readTxt;
+import static baseDeDatos.Data.writeTxt;
 import java.util.HashMap;
 import java.util.ArrayList;
 import uiMain.MenuDeConsola;
@@ -23,7 +23,7 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     private String nombre;
     private String email;
     private static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
-    static MenuDeConsola menu;
+    private static MenuDeConsola menu;
 
     public static void RT() {
         readTxt("usuarios.txt", usersList);
@@ -34,14 +34,8 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
         this.rol = rol;
         this.nombre = nombre;
         this.email = email;
-        if (existe) {
-            this.usuario = usuario;
-        } else {
-            while (usersList.containsKey(usuario)) {
-                System.out.println("usuario ya usado\nIngrese un nombre de usuario nuevo");
-                usuario = scan.next();
-            }
-            this.usuario = usuario;
+        this.usuario = usuario;
+        if (!existe) {
             String[] aux = {clave, rol, nombre, email};
             usersList.put(usuario, aux);
             writeTxt("usuarios.txt", usersList);
@@ -105,8 +99,12 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
         pelicula.getDuracion();
     }
 
-    public MenuDeConsola getMenu() {
+    public static MenuDeConsola getMenu() {
         return menu;
+    }
+
+    public static void setMenu(MenuDeConsola menu) {
+        Usuario.menu = menu;
     }
 
     public void getIdioma(Pelicula pelicula) {

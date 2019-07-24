@@ -1,7 +1,6 @@
 package uiMain;
 
-import baseDeDatos.Registro;
-import gestorAplicacion.usuario.Invitado;
+import baseDeDatos.Data;
 import gestorAplicacion.usuario.Usuario;
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Registro.initConfig();
+        Data.initConfig();
         while (true) {
             usuarioActivo.getMenu().lanzarMenu();
         }
