@@ -21,7 +21,7 @@ public class RecargarSaldo extends OpcionDeMenu {
             System.out.print("Ingrese Saldo válido: ");
             saldo = scan.nextInt();
         }
-        cliente.getCuenta().setSaldo(saldo);
+        cliente.getCuenta().setSaldo(cliente.getCuenta().getSaldo() + saldo);
         Data.writeTxt("cuentas.txt", Cuenta.getCuentasList());
         System.out.println("Saldo actualizado correctamente");
     }
