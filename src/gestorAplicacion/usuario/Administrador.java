@@ -4,6 +4,8 @@ import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Pelicula;
 import gestorAplicacion.cine.Sala;
 import uiMain.MenuDeConsola;
+//clase que genera objetos tipo administrador heredada de usuarios
+//ESTRUCTURAS: estan en la clase padre
 
 public class Administrador extends Usuario {
     static MenuDeConsola menu;
@@ -21,7 +23,7 @@ public class Administrador extends Usuario {
         // opciones     "cerrar sesion","actualizar menu","editar pelicula"
     }
 
-    private void createmovie(String titulo, String genero, String clasificacion, String duracion, String idioma) {
+    private void createmovie(String titulo, String genero, String clasificacion, String duracion, String idioma) { //de qui en adelante con los metodos que necesitan las opciones que hacen que el administrador para editar otras funciones
         Pelicula nueva = new Pelicula(titulo, genero, clasificacion, duracion, idioma);
     }
 
