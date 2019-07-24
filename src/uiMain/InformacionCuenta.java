@@ -2,13 +2,13 @@ package uiMain;
 
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Cuenta;
-
+//opcion informacion cuenta dispoible para todos los usuarios 
 public class InformacionCuenta extends OpcionDeMenu {
 
     private final String titulomenu = "Mostrar la informacion de mi cuenta";
 
     @Override
-    public void ejecutar() {
+    public void ejecutar() {//accede al hash he imprime todas las keys y values(recordar que los values de nuestros hash map son arreglos)
         Cliente us = (Cliente)Main.usuarioActivo;
         System.out.println("************" + "Cuenta del usuario " + us.getUsuario() + "************");
         System.out.println("Saldo: " + us.getCuenta().getSaldo());
