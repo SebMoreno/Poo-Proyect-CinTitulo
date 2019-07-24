@@ -49,6 +49,9 @@ public class Cuenta {
 
     public void setSaldo(int saldo) {
         this.saldo = saldo;
+        String[] aux = cuentasList.get(propietario.getUsuario());
+        aux[0] = Integer.toString(saldo);
+        cuentasList.put(propietario.getUsuario(),aux);
     }
 
 }
