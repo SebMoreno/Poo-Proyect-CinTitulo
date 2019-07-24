@@ -3,7 +3,8 @@ package gestorAplicacion.cine;
 import static baseDeDatos.Data.readTxt;
 import static baseDeDatos.Data.writeTxt;
 import java.util.HashMap;
-
+//Clase que contiene toda la informacion de las peliculas , necesaria para poder comprar boleetas y generar funciones 
+//ESTRUCTURAS:HashMap<String, String[]> pelisList (Para escribir en el txt),
 public class Pelicula {
 
     private final String genero;
@@ -13,7 +14,7 @@ public class Pelicula {
     private final String idioma;
     private final static HashMap<String, String[]> pelisList = new HashMap<>(); // key: titulo     value: genero, clasificacion, duracion, idioma
 
-    public static void RT() {
+    public static void RT() {////cada clase que tiene informacion en un archivo txt tiene este metodo para leer el respectivo archivoy guardarlo en su hashmap
         readTxt("peliculas.txt", pelisList);
     }
 
@@ -25,7 +26,7 @@ public class Pelicula {
         idioma = pelisList.get(titulo)[3];
     }
 
-    public Pelicula(String titulo, String genero, String clasificacion, String duracion, String idioma) {
+    public Pelicula(String titulo, String genero, String clasificacion, String duracion, String idioma) {//contructor que escribe en los txt
         this.genero = genero;
         this.clasificacion = clasificacion;
         this.titulo = titulo;
@@ -36,7 +37,7 @@ public class Pelicula {
         writeTxt("peliculas.txt", pelisList);
     }
 
-    public static void delete(String titulo) {
+    public static void delete(String titulo) {//metodo necesario para la opcion de administrador borrar pelicula
         if (pelisList.containsKey(titulo)) {
             System.out.println("Haz borrado " + pelisList.remove(titulo) + " de la cartelera");
         } else {
