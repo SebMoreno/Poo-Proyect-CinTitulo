@@ -10,7 +10,6 @@ public class EliminarPelicula extends OpcionDeMenu {
     Scanner input = new Scanner (System.in);
     @Override
     public void ejecutar() {
-        System.out.println("//////////////////Lista de las películas//////////////////");
         Informacionpelicula.imprimirPeliculas();
         System.out.println("Ingrese el título exacto de la película a eliminar");        
         String titulo = input.next();

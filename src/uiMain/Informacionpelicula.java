@@ -18,6 +18,7 @@ public class Informacionpelicula extends OpcionDeMenu {
     }
 
     static void imprimirPeliculas() {
+        System.out.println("//////////////////Lista de las películas//////////////////");
         if (!gestorAplicacion.cine.Pelicula.getPelisList().isEmpty()) {
             for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Pelicula.getPelisList().entrySet()) {
                 System.out.println("************" + entry.getKey() + "************");

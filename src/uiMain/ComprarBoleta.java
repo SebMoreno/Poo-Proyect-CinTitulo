@@ -1,5 +1,6 @@
 package uiMain;
 
+import baseDeDatos.Data;
 import gestorAplicacion.cine.Boleta;
 import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Sala;
@@ -23,8 +24,7 @@ public class ComprarBoleta extends OpcionDeMenu {
         System.out.println("Escoja una funcion\nEscribe el numero de la funcion");
         String funcion = entrada.next();
         Funcion F = new Funcion(funcion);
-        Sala sala = new Sala(Funcion.getFuncionesList().get(funcion)[0]);
-        System.out.println(sala);
+        System.out.println(F.getSala());
         System.out.println("\nElija la silla que desee");
         System.out.println("El significado de las letras es:");
         System.out.println("P: premium, es decir, vibrosound y preferenciales a la vez\n"
@@ -39,9 +39,10 @@ public class ComprarBoleta extends OpcionDeMenu {
         System.out.println("Ingrese la coordenada horizontal");
         int posicionH = entrada.nextInt();
         Cliente cliente = (Cliente) Main.usuarioActivo;
-        int precioBoleta = sala.getPrecio() + sala.getSilla(posicionV, posicionH).getIncremento();
+        int precioBoleta = F.getSala().getPrecio() + F.getSala().getSilla(posicionV, posicionH).getIncremento();
         if (cliente.getCuenta().getSaldo() >= precioBoleta) {
-            Boleta boleta = new Boleta(cliente.getCuenta(), F, sala.getSilla(posicionV, posicionH));
+            Boleta boleta = new Boleta(cliente.getCuenta(), F, F.getSala().getSilla(posicionV, posicionH));
+            Data.writeTxt("boletas.txt", Boleta.getBoletasList());
             System.out.println("Su compra fue realizada con éxito");
         } else {
             System.out.println("Saldo insuficiente");

@@ -17,6 +17,7 @@ public class InformacionFunciones extends OpcionDeMenu {
     }
 
     static void imprimirFunciones() {
+        System.out.println("//////////////////Lista de las funciones//////////////////");
         if (!gestorAplicacion.cine.Funcion.getFuncionesList().isEmpty()) {
             for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Funcion.getFuncionesList().entrySet()) {
                 System.out.println("************" + "Funcion " + entry.getKey() + "************");

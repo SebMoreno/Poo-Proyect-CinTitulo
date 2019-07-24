@@ -12,20 +12,19 @@ public class CrearFuncion extends OpcionDeMenu{
     Scanner input = new Scanner(System.in);
     @Override
     public void ejecutar() {
-        System.out.println("Aquí las películas disponibles");
         Informacionpelicula.imprimirPeliculas();
-        System.out.println("Ingrese el ID de una sala");
         for(Map.Entry<String, String[]> entry : gestorAplicacion.cine.Sala.getSalasList().entrySet()){
             System.out.println("******** ID: " + entry.getKey() + " ********");
             System.out.println("Precio: " + entry.getValue()[0]);
             System.out.println("Tipo:   " + entry.getValue()[1]);
             System.out.println("Capacidad:  " + entry.getValue()[2]);
         }
+        System.out.print("Ingrese el ID de una sala: ");
         String ID = input.next();
         Sala sala = new Sala(ID);
-        System.out.println("Ingrese una hora para la función");
+        System.out.print("Ingrese una hora para la función: ");
         String hora = input.next();
-        System.out.println("Ingrese una película para reproducir en la función");
+        System.out.print("Ingrese una película para reproducir en la función: ");
         String pelicula = input.next();
         Pelicula peli = new Pelicula(pelicula);
         
