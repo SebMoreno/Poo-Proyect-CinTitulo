@@ -54,7 +54,6 @@ public class Data {
         options.add(menu_generico.get("iniciar sesion"));
         options.add(menu_generico.get("registrarse"));
         options.add(menu_generico.get("iniciar como invitado"));
-        options.add(menu_generico.get("comprar boleta"));
         options.add(menu_generico.get("terminar programa"));
         menuInicial = new MenuDeConsola(options);
     }
@@ -74,7 +73,7 @@ public class Data {
         ArrayList<OpcionDeMenu> options = new ArrayList<>();
         options.add(Data.menu_generico.get("informacion pelicula"));
         options.add(Data.menu_generico.get("informacion funciones"));
-        options.add(Data.menu_generico.get("comprar pelicula"));
+        options.add(Data.menu_generico.get("comprar boleta"));
         options.add(Data.menu_generico.get("ver informacion cuenta"));
         options.add(Data.menu_generico.get("actualizar saldo"));
         options.add(Data.menu_generico.get("terminar programa"));
