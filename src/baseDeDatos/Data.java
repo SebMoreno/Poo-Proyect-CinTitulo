@@ -43,6 +43,10 @@ public class Data {
         menu_generico.put("editar pelicula", new EditarPelicula("Editar Pelicula"));
         menu_generico.put("iniciar como invitado", new IniciarComoInvitado("Iniciar Como Invitado"));
         menu_generico.put("terminar programa", new Salir());
+        menu_generico.put("añadir pelicula", new AñadirPelicula());
+        menu_generico.put("eliminar pelicula", new EliminarPelicula());
+        menu_generico.put("crear funcion", new CrearFuncion());
+        menu_generico.put("eliminar funcion", new EliminarFuncion());
     }
 
     static private void menuInicial() {
