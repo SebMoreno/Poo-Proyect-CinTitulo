@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class Cuenta {
 
-    private final Usuario propietario;
+    private final Cliente propietario;
     private int saldo;
     private final ArrayList<Integer> idBoletas = new ArrayList<>();
     public static final HashMap<String, String[]> cuentasList = new HashMap<>(); // key: usuario    value: saldo, idBoleta1, idBoleta2, ... , idBoletaN
@@ -16,7 +16,7 @@ public class Cuenta {
         readTxt("cuentas.txt", cuentasList);
     }
 
-    protected Cuenta(Usuario propietario, boolean existe) {
+    protected Cuenta(Cliente propietario, boolean existe) {
         this.propietario = propietario;
         if (existe) {
             this.saldo = Integer.valueOf(cuentasList.get(propietario.getUsuario())[0]);
@@ -35,7 +35,7 @@ public class Cuenta {
         }
     }
 
-    public Usuario getPropietario() {
+    public Cliente getPropietario() {
         return propietario;
     }
 

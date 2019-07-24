@@ -1,12 +1,29 @@
 package gestorAplicacion.usuario;
 
 import baseDeDatos.Registro;
+import static gestorAplicacion.usuario.Usuario.menu;
+import java.util.ArrayList;
+import uiMain.MenuDeConsola;
+import uiMain.OpcionDeMenu;
 
 /**
  *
  * @author SebMoreno
  */
-public class Cliente extends Usuario{
+public class Cliente extends Usuario {
+
+    private final Cuenta cuenta;
+
+    static {
+        ArrayList<OpcionDeMenu> options = new ArrayList<>();
+        options.add(Registro.menu_generico.get("informacion pelicula"));
+        options.add(Registro.menu_generico.get("comprar boleta"));
+        options.add(Registro.menu_generico.get("reservar boleta"));
+        options.add(Registro.menu_generico.get("ver informacion cuenta"));
+        options.add(Registro.menu_generico.get("recargar"));
+        options.add(Registro.menu_generico.get("terminar programa"));
+        menu = new MenuDeConsola(options);
+    }
 
     public Cliente(String usuario, String clave) {
         this(usuario, clave, "NA");
@@ -18,13 +35,8 @@ public class Cliente extends Usuario{
 
     public Cliente(String usuario, String clave, String nombre, String email, boolean existe) {
         super(usuario, clave, "cliente", nombre, email, existe);
+        this.cuenta = new Cuenta(this, existe);
         //opciones  "informacion pelicula","comprar pelicula","reservar pelicula","ver informacion cuenta","actualizar saldo"
-        this.menu_user.add(Registro.menu_generico.get("informacion pelicula"));
-        this.menu_user.add(Registro.menu_generico.get("comprar pelicula"));
-        this.menu_user.add(Registro.menu_generico.get("reservar pelicula"));
-        this.menu_user.add(Registro.menu_generico.get("ver informacion cuenta"));
-        this.menu_user.add(Registro.menu_generico.get("actualizar saldo"));
-        this.menu_user.add(Registro.menu_generico.get("salir"));
     }
 
 }

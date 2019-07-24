@@ -6,6 +6,7 @@ import gestorAplicacion.cine.Pelicula;
 import gestorAplicacion.cine.Sala;
 import gestorAplicacion.cine.Silla;
 import gestorAplicacion.usuario.Cuenta;
+import gestorAplicacion.usuario.Invitado;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -13,7 +14,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ArrayList;
 import uiMain.*;
 import gestorAplicacion.usuario.Usuario;
 
@@ -21,8 +21,13 @@ public class Registro {
 
     final static public HashMap<String, OpcionDeMenu> menu_generico = new HashMap<>();
     public final HashMap<Usuario, MenuDeConsola> menus_usarios = new HashMap<>();
+    public static void initConfig(){
+    readAllTxt();
+    god_menu_birth();
+    Main.usuarioActivo = new Invitado();
+    }
 
-    static public void readAllTxt() {
+    static private void readAllTxt() {
         Usuario.RT();
         Cuenta.RT();
         Silla.RT();
@@ -32,7 +37,7 @@ public class Registro {
         Boleta.RT();
     }
 
-    static public void god_menu_birth() {
+    static private void god_menu_birth() {
         menu_generico.put("iniciar sesion", new IniciarSesion("Log In"));
         menu_generico.put("cerrar sesion", new CerrarSesion("Log Out"));
         menu_generico.put("informacion pelicula", new Informacionpelicula("Informacion Peliculas"));
@@ -44,7 +49,7 @@ public class Registro {
         menu_generico.put("actualizar menu", new ActualizarMenu("Actualizar Menu"));
         menu_generico.put("editar pelicula", new EditarPelicula("Editar Pelicula"));
         menu_generico.put("iniciar como invitado", new IniciarComoInvitado("Iniciar Como Invitado"));
-        menu_generico.put("salir", new Retroceder("Salir"));
+        menu_generico.put("salir", new Salir("Salir"));
     }
 
     public static void writeTxt(String archivo, HashMap<String, String[]> lista) {

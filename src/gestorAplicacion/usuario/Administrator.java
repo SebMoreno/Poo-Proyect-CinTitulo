@@ -4,8 +4,22 @@ import baseDeDatos.Registro;
 import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Pelicula;
 import gestorAplicacion.cine.Sala;
+import static gestorAplicacion.usuario.Usuario.menu;
+import java.util.ArrayList;
+import uiMain.MenuDeConsola;
+import uiMain.OpcionDeMenu;
 
 public class Administrator extends Usuario {
+
+    static {
+        ArrayList<OpcionDeMenu> options = new ArrayList<>();
+        options.add(Registro.menu_generico.get("añadir pelicula"));
+        options.add(Registro.menu_generico.get("eliminar pelicula"));
+        options.add(Registro.menu_generico.get("crear funcion"));
+        options.add(Registro.menu_generico.get("eliminar funcion"));
+        options.add(Registro.menu_generico.get("terminar programa"));
+        menu = new MenuDeConsola(options);
+    }
 
     public Administrator(String usuario, String clave) {
         this(usuario, clave, "NA");
@@ -18,10 +32,6 @@ public class Administrator extends Usuario {
     public Administrator(String usuario, String clave, String nombre, String email, boolean existe) {
         super(usuario, clave, "admin", nombre, email, existe);
         // opciones     "cerrar sesion","actualizar menu","editar pelicula"
-        this.menu_user.add(Registro.menu_generico.get("cerrar sesion"));
-        this.menu_user.add(Registro.menu_generico.get("actualizar menu"));
-        this.menu_user.add(Registro.menu_generico.get("editar pelicula"));
-        this.menu_user.add(Registro.menu_generico.get("salir"));
     }
 
     private void createmovie(String titulo, String genero, String clasificacion, String duracion, String idioma, String sala) {
@@ -51,7 +61,8 @@ public class Administrator extends Usuario {
     private void adminCreateFuncion(Sala sala, String hora, Pelicula pelicula) {
         Funcion nueva = new Funcion(sala, hora, pelicula);
     }
-    private void adminDeleteFuncion(int id){
+
+    private void adminDeleteFuncion(int id) {
         Funcion.deleteFuncion(id);
     }
 }

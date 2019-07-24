@@ -19,15 +19,13 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     private Scanner scan = new Scanner(System.in);
     private final String usuario;
     private final String rol;
-    private final Cuenta cuenta;
     private String clave;
     private String nombre;
     private String email;
     private static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
-    public ArrayList<OpcionDeMenu> menu_user = new ArrayList<>();
-    public MenuDeConsola console_menu_user = new MenuDeConsola(menu_user);
+    static MenuDeConsola menu;
 
-    public static void RT(){
+    public static void RT() {
         readTxt("usuarios.txt", usersList);
     }
 
@@ -38,7 +36,6 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
         this.email = email;
         if (existe) {
             this.usuario = usuario;
-            this.cuenta = new Cuenta(this, true);
         } else {
             while (usersList.containsKey(usuario)) {
                 System.out.println("usuario ya usado\nIngrese un nombre de usuario nuevo");
@@ -48,8 +45,14 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
             String[] aux = {clave, rol, nombre, email};
             usersList.put(usuario, aux);
             writeTxt("usuarios.txt", usersList);
-            this.cuenta = new Cuenta(this, false);
-        }
+        }/*
+        if (rol.equals("admin")) {
+
+        } else if (rol.equals(rol.equals("cliente"))) {
+
+        } else {
+
+        }*/
     }
 
     public String getUsuario() {
@@ -58,10 +61,6 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
 
     public String getRol() {
         return rol;
-    }
-
-    public Cuenta getCuenta() {
-        return cuenta;
     }
 
     public String getNombre() {
@@ -87,14 +86,17 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     public static HashMap<String, String[]> getUsersList() {
         return usersList;
     }
+
     //get funtions of all users.
     //get movie infomation:
-    public void getGenero(Pelicula pelicula){
+    public void getGenero(Pelicula pelicula) {
         pelicula.getGenero();
     }
-    public void getClasificacion(Pelicula pelicula){
+
+    public void getClasificacion(Pelicula pelicula) {
         pelicula.getClasificacion();
     }
+
     public void getTitulo(Pelicula pelicula) {
         pelicula.getTitulo();
     }
@@ -103,25 +105,35 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
         pelicula.getDuracion();
     }
 
+    public MenuDeConsola getMenu() {
+        return menu;
+    }
+
     public void getIdioma(Pelicula pelicula) {
         pelicula.getIdioma();
     }
+
     //get function.
-    public void getSala(Funcion funcion){
+    public void getSala(Funcion funcion) {
         funcion.getSala();
     }
-    public void getHora(Funcion funcion){
+
+    public void getHora(Funcion funcion) {
         funcion.getHora();
     }
-    public void getSillasOcupadas(Funcion funcion){
+
+    public void getSillasOcupadas(Funcion funcion) {
         funcion.getSillasOcupadas();
     }
-    public void getPelicula(Funcion funcion){
+
+    public void getPelicula(Funcion funcion) {
         funcion.getPelicula();
     }
-    public void getIdFuncion(Funcion funcion){
+
+    public void getIdFuncion(Funcion funcion) {
         funcion.getIdFuncion();
     }
+
     //get theater.
     public void getPrecio(Sala sala) {
         sala.getPrecio();
@@ -139,30 +151,37 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
         sala.getIdSala();
     }
 
-    public void getSilla(Sala sala,int x ,int y) {
+    public void getSilla(Sala sala, int x, int y) {
         sala.getSilla(x, y);
     }
+
     //get silla.
     public void getIncremento(Silla silla) {
         silla.getIncremento();
     }
-    public void getSala(Silla silla){
+
+    public void getSala(Silla silla) {
         silla.getSala();
     }
-    public void getPosicion(Silla silla){
+
+    public void getPosicion(Silla silla) {
         silla.getPosicion();
     }
-    public void getIdSilla(Silla silla){
+
+    public void getIdSilla(Silla silla) {
         silla.getIdSilla();
     }
+
     //ticket functions.
-    public void createTicket(Cuenta dueño, Funcion funcion, Silla silla){
-       Boleta nuevo = new Boleta(dueño,funcion,silla);
+    public void createTicket(Cuenta dueño, Funcion funcion, Silla silla) {
+        Boleta nuevo = new Boleta(dueño, funcion, silla);
     }
-    private void getDueño(Boleta boleta){
+
+    private void getDueño(Boleta boleta) {
         boleta.getDueño();
     }
-    private void getFuncion(Boleta boleta){
+
+    private void getFuncion(Boleta boleta) {
         boleta.getDueño();
     }
 }

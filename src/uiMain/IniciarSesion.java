@@ -18,7 +18,6 @@ public class IniciarSesion extends OpcionDeMenu {
     }
 
     public void ejecutar() {
-        Main.navegador++;
         System.out.println("Ingrese usuario");
         String nickname = scan.next();
         while (!gestorAplicacion.usuario.Usuario.getUsersList().containsKey(nickname)) {
@@ -42,10 +41,10 @@ public class IniciarSesion extends OpcionDeMenu {
         String[] aux = gestorAplicacion.usuario.Usuario.getUsersList().get(nickname);// key: usuario    value: clave, rol, nombre, email
         if (aux[1].equals("cliente")) {
             cliente = new Cliente(nickname, pass, aux[2], aux[3], true);
-            cliente.console_menu_user.lanzarMenu();
+            //cliente.console_menu_user.lanzarMenu();
         } else if (aux[1].equals("admin")) {
             admin = new Administrator(nickname, pass, aux[2], aux[3], true);
-            admin.console_menu_user.lanzarMenu();
+            //admin.console_menu_user.lanzarMenu();
         }
     }
 
