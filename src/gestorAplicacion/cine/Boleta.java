@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 //Esta clase crea las boletas que se general cuando se compra , esta guardada tambien en la cuenta de su respectivo usuario
 //ESTRUCTURAS:HashMap<String, String[]> boletasList(para registro de las boletas),
+
 public class Boleta {
 
     private final Cuenta dueño;
@@ -20,12 +21,12 @@ public class Boleta {
     private final static HashMap<String, String[]> boletasList = new HashMap<>(); // key: idBoleta     value: usuario, idFuncion, posicionSilla, precio
 
     public static void RT() {//cada clase que tiene informacion en un archivo txt tiene este metodo para leer el respectivo archivoy guardarlo en su hashmap
-        readTxt("cuentas.txt", cuentasList);
+        readTxt("boletas.txt", boletasList);
     }
 
     public Boleta(String idBoleta) {//constructor solo con id , accediendo al hash puede obtener usuario , clave , nombre , email,silla , precio, ademas crea propietario con el booleano existe en true(explicacion en su respectivo contructor)
         String usuario = boletasList.get(idBoleta)[0];
-        String clave= Usuario.getUsersList().get(usuario)[0];
+        String clave = Usuario.getUsersList().get(usuario)[0];
         String nombre = Usuario.getUsersList().get(usuario)[2];
         String email = Usuario.getUsersList().get(usuario)[3];
         Cliente propietario = new Cliente(usuario, clave, nombre, email, true);
@@ -52,7 +53,15 @@ public class Boleta {
         this.idBoleta = mayorId + 1;
         String[] valor = {dueño.getPropietario().getUsuario(), Integer.toString(funcion.getIdFuncion()), silla.getPosicion(), Integer.toString(this.precio)};
         boletasList.put(Integer.toString(idBoleta), valor);
+        String[] aux2 = new String[dueño.getIdBoletas().size() + 1];
+        aux2[0] = Integer.toString(dueño.getSaldo());
+        for (int i = 0; i < dueño.getIdBoletas().size(); i++) {
+            aux2[i + 1] = Integer.toString(dueño.getIdBoletas().get(i));
+        }
+        cuentasList.put(dueño.getPropietario().getUsuario(), aux2);
+
         writeTxt("cuentas.txt", cuentasList);
+        writeTxt("boletas.txt", boletasList);
         silla.setOcupada(true);
     }
 

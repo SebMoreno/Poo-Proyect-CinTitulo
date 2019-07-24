@@ -49,6 +49,10 @@ public class Cuenta {
         return cuentasList;
     }
 
+    public ArrayList<Integer> getIdBoletas() {
+        return idBoletas;
+    }
+
     public void setSaldo(int saldo) {//metodo utilizado para reemplazar saldo
         this.saldo = saldo;
         String[] aux = cuentasList.get(propietario.getUsuario());
