@@ -35,7 +35,6 @@ public class Data {
         menu_generico.put("iniciar sesion", new IniciarSesion());
         menu_generico.put("informacion pelicula", new Informacionpelicula());
         menu_generico.put("comprar pelicula", new ComprarBoleta());
-        menu_generico.put("reservar pelicula", new ReservarBoleta("Reservar Boleta"));
         menu_generico.put("ver informacion cuenta", new InformacionCuenta("Ver Informacion Cuenta"));
         menu_generico.put("actualizar saldo", new RecargarSaldo("Recargar Saldo"));
         menu_generico.put("registrarse", new Registrarse());
@@ -73,7 +72,6 @@ public class Data {
         ArrayList<OpcionDeMenu> options = new ArrayList<>();
         options.add(Data.menu_generico.get("informacion pelicula"));
         options.add(Data.menu_generico.get("comprar pelicula"));
-        options.add(Data.menu_generico.get("reservar pelicula"));
         options.add(Data.menu_generico.get("ver informacion cuenta"));
         options.add(Data.menu_generico.get("actualizar saldo"));
         options.add(Data.menu_generico.get("terminar programa"));
