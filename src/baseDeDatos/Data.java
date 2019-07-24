@@ -46,6 +46,7 @@ public class Data {
         menu_generico.put("eliminar pelicula", new EliminarPelicula());
         menu_generico.put("crear funcion", new CrearFuncion());
         menu_generico.put("eliminar funcion", new EliminarFuncion());
+        menu_generico.put("informacion funciones", new InformacionFunciones());
     }
 
     static private void menuInicial() {
