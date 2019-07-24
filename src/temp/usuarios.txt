@@ -1,5 +1,5 @@
-cliente01 123 cliente fdsa fdsa
+cliente01 123 cliente edificando@gmail.com carmona
 invitado NA NA NA NE
-admin01 123 admin a d
-admin02 12 admin fdsa gfa
-cliente02 123 cliente chao holi
+admin01 123 admin adminsuper@yahoo.com karlos
+admin02 12 admin andreaparramadura12@hotmail.com andrea
+cliente02 123 cliente superman@gmail.com clark
