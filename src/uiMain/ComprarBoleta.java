@@ -75,7 +75,7 @@ public class ComprarBoleta extends OpcionDeMenu {
         System.out.println("Seleccione una silla disponible, escriba la identificación de la silla ");
         System.out.println(matriz);
         String silla = entrada.next();
-        String user = IniciarSesion.getUsuarioActivo();
+        String user = Main.usuarioActivo.getUsuario();
         int precio_sala = Integer.valueOf(gestorAplicacion.cine.Sala.getSalasList().get(sala)[0]);
         int precio_silla = Integer.valueOf(gestorAplicacion.cine.Silla.getSillasList().get(silla)[0]);
         int precio_total = precio_sala+precio_silla;
