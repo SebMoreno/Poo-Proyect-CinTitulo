@@ -31,9 +31,6 @@ public class Pelicula {
         this.titulo = titulo;
         this.duracion = duracion;
         this.idioma = idioma;
-        while (pelisList.containsKey(titulo)) {
-            System.out.println("pelicula ya ingresada");//Programar para mostrar error y perdir nueva pelicula
-        }
         String[] aux = {genero, clasificacion, duracion, idioma};
         pelisList.put(titulo, aux);
         writeTxt("peliculas.txt", pelisList);
