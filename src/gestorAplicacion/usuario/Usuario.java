@@ -162,8 +162,8 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     }
 
     //ticket functions.
-    public void createTicket(Cuenta dueño, Funcion funcion, Silla silla) {
-        Boleta nuevo = new Boleta(dueño, funcion, silla);
+    public void createTicket(Cuenta dueño, Funcion funcion, Silla silla, String estado) {
+        Boleta nuevo = new Boleta(dueño, funcion, silla, estado);
     }
 
     private void getDueño(Boleta boleta) {

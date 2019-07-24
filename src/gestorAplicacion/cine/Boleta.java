@@ -14,13 +14,13 @@ public class Boleta {
     private final int idBoleta;
     private final Silla silla;
     private final int precio;
-    private final static HashMap<String, String[]> boletasList = new HashMap<>(); // key: idBoleta     value: usuario, idFuncion, posicionSilla, precio
+    private final static HashMap<String, String[]> boletasList = new HashMap<>(); // key: idBoleta     value: usuario, idFuncion, posicionSilla, precio, estado
 
     public static void RT(){
         readTxt("cuentas.txt", cuentasList);
     }
 
-    public Boleta(Cuenta dueño, Funcion funcion, Silla silla) {
+    public Boleta(Cuenta dueño, Funcion funcion, Silla silla, String estado) {
         this.dueño = dueño;
         this.funcion = funcion;
         this.silla = silla;
@@ -33,7 +33,7 @@ public class Boleta {
             }
         }
         this.idBoleta = mayorId + 1;
-        String[] valor = {dueño.getPropietario().getUsuario(), Integer.toString(funcion.getIdFuncion()), silla.getPosicion(), Integer.toString(this.precio)};
+        String[] valor = {dueño.getPropietario().getUsuario(), Integer.toString(funcion.getIdFuncion()), silla.getPosicion(), Integer.toString(this.precio), estado};
         boletasList.put(Integer.toString(idBoleta), valor);
         writeTxt("cuentas.txt", cuentasList);
     }
