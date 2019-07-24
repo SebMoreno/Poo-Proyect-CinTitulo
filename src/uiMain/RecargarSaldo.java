@@ -1,6 +1,7 @@
 package uiMain;
 
 import baseDeDatos.Data;
+import static baseDeDatos.Data.writeTxt;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Cuenta;
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class RecargarSaldo extends OpcionDeMenu {
             saldo = scan.nextInt();
         }
         cliente.getCuenta().setSaldo(cliente.getCuenta().getSaldo() + saldo);
-        Data.writeTxt("cuentas.txt", Cuenta.getCuentasList());
+        writeTxt("cuentas.txt", Cuenta.getCuentasList());
         System.out.println("Saldo actualizado correctamente");
     }
 
