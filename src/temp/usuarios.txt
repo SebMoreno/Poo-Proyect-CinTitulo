@@ -1,3 +1,5 @@
 cli 123 cliente fdsa fdsa
 invitado NA NA NA NE
+admin01 123 admin a d
 admin 12 admin fdsa gfa
+cliente02 123 cliente chao holi
