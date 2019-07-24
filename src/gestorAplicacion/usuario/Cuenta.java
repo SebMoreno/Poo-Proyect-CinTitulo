@@ -4,6 +4,7 @@ import static baseDeDatos.Data.readTxt;
 import static baseDeDatos.Data.writeTxt;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Cuenta {
 
@@ -35,6 +36,13 @@ public class Cuenta {
         }
     }
 
+    public static void add_id(String user, String id){
+        String aux [] = new String [cuentasList.get(user).length+1];
+        aux = cuentasList.get(user);
+        aux[cuentasList.get(user).length+1] = id;
+        cuentasList.put(user, aux);
+    }
+    
     public Cliente getPropietario() {
         return propietario;
     }
