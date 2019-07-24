@@ -72,6 +72,7 @@ public class Data {
 
         ArrayList<OpcionDeMenu> options = new ArrayList<>();
         options.add(Data.menu_generico.get("informacion pelicula"));
+        options.add(Data.menu_generico.get("informacion funciones"));
         options.add(Data.menu_generico.get("comprar pelicula"));
         options.add(Data.menu_generico.get("ver informacion cuenta"));
         options.add(Data.menu_generico.get("actualizar saldo"));
