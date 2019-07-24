@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class Data {
 
     public static final HashMap<String, OpcionDeMenu> menu_generico = new HashMap<>();
-    public final HashMap<Usuario, MenuDeConsola> menus_usarios = new HashMap<>();
     private static MenuDeConsola menuInicial;
 
     public static void initConfig() {
@@ -29,6 +28,7 @@ public class Data {
         menuInicial();
         menuAdmin();
         menuCliente();
+        menuInvitado();
     }
 
     static private void god_menu_birth() {
@@ -61,7 +61,7 @@ public class Data {
         options.add(menu_generico.get("crear funcion"));
         options.add(menu_generico.get("eliminar funcion"));
         options.add(menu_generico.get("terminar programa"));
-        Administrator.setMenu(new MenuDeConsola(options));
+        Administrador.setMenu(new MenuDeConsola(options));
     }
 
     static private void menuCliente() {
@@ -77,10 +77,11 @@ public class Data {
 
     }
     static private void menuInvitado(){
-        ArrayList<OpcionDeMenu> options = new ArrayList<>();        
-        options.add(Data.menu_generico.get("iniciar sesion"));
-        options.add(Data.menu_generico.get("iniciar como invitado"));
-        options.add(Data.menu_generico.get("terminar programa"));
+        ArrayList<OpcionDeMenu> options = new ArrayList<>();
+        options.add(Data.menu_generico.get("registrarse"));
+        options.add(Data.menu_generico.get("informacion pelicula"));
+        options.add(Data.menu_generico.get("informacion funciones"));
+        options.add(Data.menu_generico.get("terminar programa"));       
         Invitado.setMenu(new MenuDeConsola(options));
     }
 

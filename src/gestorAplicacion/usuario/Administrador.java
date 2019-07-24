@@ -4,17 +4,17 @@ import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Pelicula;
 import gestorAplicacion.cine.Sala;
 
-public class Administrator extends Usuario {
+public class Administrador extends Usuario {
 
-    public Administrator(String usuario, String clave) {
+    public Administrador(String usuario, String clave) {
         this(usuario, clave, "NA");
     }
 
-    public Administrator(String usuario, String clave, String nombre) {
+    public Administrador(String usuario, String clave, String nombre) {
         this(usuario, clave, nombre, "NE", false);
     }
 
-    public Administrator(String usuario, String clave, String nombre, String email, boolean existe) {
+    public Administrador(String usuario, String clave, String nombre, String email, boolean existe) {
         super(usuario, clave, "admin", nombre, email, existe);
         // opciones     "cerrar sesion","actualizar menu","editar pelicula"
     }

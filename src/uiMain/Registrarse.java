@@ -1,6 +1,6 @@
 package uiMain;
 
-import gestorAplicacion.usuario.Administrator;
+import gestorAplicacion.usuario.Administrador;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Usuario;
 import java.util.Scanner;
@@ -44,8 +44,10 @@ public class Registrarse extends OpcionDeMenu {
 
         if (rol.equals("cliente")) {
             nuevo = new Cliente(usuario, password, nombre, email, false);
+            Main.menu = Cliente.getMenu();
         } else {
-            nuevo = new Administrator(usuario, password, nombre, email, false);
+            nuevo = new Administrador(usuario, password, nombre, email, false);
+            Main.menu = Administrador.getMenu();
         }
         Main.usuarioActivo = nuevo;
     }

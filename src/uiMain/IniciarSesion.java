@@ -1,6 +1,6 @@
 package uiMain;
 
-import gestorAplicacion.usuario.Administrator;
+import gestorAplicacion.usuario.Administrador;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Usuario;
 import java.util.Scanner;
@@ -9,9 +9,8 @@ public class IniciarSesion extends OpcionDeMenu {
 
     private final String titulomenu = "Iniciar Sesion";
 
-    private static String usuarioActivo;
     private Cliente cliente;
-    private Administrator admin;
+    private Administrador admin;
 
     public String toString() {
         return titulomenu;
@@ -35,15 +34,12 @@ public class IniciarSesion extends OpcionDeMenu {
         String rol = Usuario.getUsersList().get(usuario)[1];
         if (rol.equals("cliente")) {
             nuevo = new Cliente(usuario, password, Usuario.getUsersList().get(usuario)[2], Usuario.getUsersList().get(usuario)[3], true);
+            Main.menu = Cliente.getMenu();
         } else {
-            nuevo = new Administrator(usuario, password, Usuario.getUsersList().get(usuario)[2], Usuario.getUsersList().get(usuario)[3], true);
+            nuevo = new Administrador(usuario, password, Usuario.getUsersList().get(usuario)[2], Usuario.getUsersList().get(usuario)[3], true);
+            Main.menu = Administrador.getMenu();
         }
         Main.usuarioActivo = nuevo;
-    }
-
-    public static String getUsuarioActivo() {
-
-        return usuarioActivo;
     }
 
 }
