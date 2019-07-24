@@ -1,1 +1,4 @@
-1 3 Aladin 86 0
+1 3 Aladin 8:06 0
+2 1 Avatar 13:00 0
+3 2 EndGame 1:00 0
+4 4 Aladin 4:00 0
