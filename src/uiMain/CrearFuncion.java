@@ -29,6 +29,7 @@ public class CrearFuncion extends OpcionDeMenu{
         Pelicula peli = new Pelicula(pelicula);//los constructores se encargan de crear eso
         
         Funcion funcion = new Funcion(sala,hora,peli);
+        System.out.println("¡La Función ha sido agregada con exito!");
     }
 
     @Override
