@@ -8,7 +8,8 @@ import gestorAplicacion.usuario.Cuenta;
 import gestorAplicacion.usuario.Usuario;
 import java.util.HashMap;
 import java.util.Map;
-
+//Esta clase crea las boletas que se general cuando se compra , esta guardada tambien en la cuenta de su respectivo usuario
+//ESTRUCTURAS:HashMap<String, String[]> boletasList(para registro de las boletas),
 public class Boleta {
 
     private final Cuenta dueño;
@@ -18,11 +19,11 @@ public class Boleta {
     private final int precio;
     private final static HashMap<String, String[]> boletasList = new HashMap<>(); // key: idBoleta     value: usuario, idFuncion, posicionSilla, precio
 
-    public static void RT() {
+    public static void RT() {//cada clase que tiene informacion en un archivo txt tiene este metodo para leer el respectivo archivoy guardarlo en su hashmap
         readTxt("cuentas.txt", cuentasList);
     }
 
-    public Boleta(String idBoleta) {
+    public Boleta(String idBoleta) {//constructor solo con id , accediendo al hash puede obtener usuario , clave , nombre , email,silla , precio, ademas crea propietario con el booleano existe en true(explicacion en su respectivo contructor)
         String usuario = boletasList.get(idBoleta)[0];
         String clave= Usuario.getUsersList().get(usuario)[0];
         String nombre = Usuario.getUsersList().get(usuario)[2];
@@ -36,7 +37,7 @@ public class Boleta {
         precio = Integer.valueOf(boletasList.get(idBoleta)[3]);
     }
 
-    public Boleta(Cuenta dueño, Funcion funcion, Silla silla) {
+    public Boleta(Cuenta dueño, Funcion funcion, Silla silla) {//Constructor originial de boleta y la guarda en su respectivo txt
         this.dueño = dueño;
         this.funcion = funcion;
         this.silla = silla;
