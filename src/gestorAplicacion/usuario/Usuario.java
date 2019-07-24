@@ -23,7 +23,6 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     private String nombre;
     private String email;
     private static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
-    private static MenuDeConsola menu;
 
     public static void RT() {
         readTxt("usuarios.txt", usersList);
@@ -97,14 +96,6 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
 
     public void getDuracion(Pelicula pelicula) {
         pelicula.getDuracion();
-    }
-
-    public static MenuDeConsola getMenu() {
-        return menu;
-    }
-
-    public static void setMenu(MenuDeConsola menu) {
-        Usuario.menu = menu;
     }
 
     public void getIdioma(Pelicula pelicula) {

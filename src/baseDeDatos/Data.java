@@ -33,8 +33,8 @@ public class Data {
 
     static private void god_menu_birth() {
         menu_generico.put("iniciar sesion", new IniciarSesion());
-        menu_generico.put("informacion pelicula", new Informacionpelicula("Informacion Peliculas"));
-        menu_generico.put("comprar pelicula", new ComprarBoleta("Comprar Boleta"));
+        menu_generico.put("informacion pelicula", new Informacionpelicula());
+        menu_generico.put("comprar pelicula", new ComprarBoleta());
         menu_generico.put("reservar pelicula", new ReservarBoleta("Reservar Boleta"));
         menu_generico.put("ver informacion cuenta", new InformacionCuenta("Ver Informacion Cuenta"));
         menu_generico.put("actualizar saldo", new RecargarSaldo("Recargar Saldo"));

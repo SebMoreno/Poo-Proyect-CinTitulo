@@ -9,10 +9,6 @@ public class ComprarBoleta extends OpcionDeMenu {
     private String titulopelicula;
     private ArrayList<String> funciones = new ArrayList<String>();
     private ArrayList<String> peliculas = new ArrayList<String>();
-    public ComprarBoleta(String s){
-        this.titulopelicula = s;
-        
-    }
     
     public void ejecutar(){
         /*String sala = gestorAplicacion.cine.Pelicula.getPelisList().get(titulopelicula)[4];
@@ -75,7 +71,7 @@ public class ComprarBoleta extends OpcionDeMenu {
         System.out.println("Seleccione una silla disponible, escriba la identificación de la silla ");
         System.out.println(matriz);
         String silla = entrada.next();
-        String user = IniciarSesion.getUsuarioActivo();
+        String user = Main.usuarioActivo.getUsuario();
         int precio_sala = Integer.valueOf(gestorAplicacion.cine.Sala.getSalasList().get(sala)[0]);
         int precio_silla = Integer.valueOf(gestorAplicacion.cine.Silla.getSillasList().get(silla)[0]);
         int precio_total = precio_sala+precio_silla;

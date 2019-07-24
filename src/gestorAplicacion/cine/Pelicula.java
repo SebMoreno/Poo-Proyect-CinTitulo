@@ -12,23 +12,21 @@ public class Pelicula {
     private final String duracion;
     private final String idioma;
     private final static HashMap<String, String[]> pelisList = new HashMap<>(); // key: titulo     value: genero, clasificacion, duracion, idioma, sala
-    private String sala;
 
     public static void RT() {
         readTxt("peliculas.txt", pelisList);
-    }
+    } 
 
-    public Pelicula(String titulo, String genero, String clasificacion, String duracion, String idioma, String sala) {
+    public Pelicula(String titulo, String genero, String clasificacion, String duracion, String idioma) {
         this.genero = genero;
         this.clasificacion = clasificacion;
         this.titulo = titulo;
         this.duracion = duracion;
         this.idioma = idioma;
-        this.sala = sala;
         while (pelisList.containsKey(titulo)) {
             System.out.println("pelicula ya ingresada");//Programar para mostrar error y perdir nueva pelicula
         }
-        String[] aux = {genero, clasificacion, duracion, idioma, sala};
+        String[] aux = {genero, clasificacion, duracion, idioma};
         pelisList.put(titulo, aux);
         writeTxt("peliculas.txt", pelisList);
     }

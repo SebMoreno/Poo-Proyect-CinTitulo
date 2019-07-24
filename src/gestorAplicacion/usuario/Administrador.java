@@ -3,8 +3,10 @@ package gestorAplicacion.usuario;
 import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.cine.Pelicula;
 import gestorAplicacion.cine.Sala;
+import uiMain.MenuDeConsola;
 
 public class Administrador extends Usuario {
+    static MenuDeConsola menu;
 
     public Administrador(String usuario, String clave) {
         this(usuario, clave, "NA");
@@ -19,8 +21,8 @@ public class Administrador extends Usuario {
         // opciones     "cerrar sesion","actualizar menu","editar pelicula"
     }
 
-    private void createmovie(String titulo, String genero, String clasificacion, String duracion, String idioma, String sala) {
-        Pelicula nueva = new Pelicula(titulo, genero, clasificacion, duracion, idioma, sala);
+    private void createmovie(String titulo, String genero, String clasificacion, String duracion, String idioma) {
+        Pelicula nueva = new Pelicula(titulo, genero, clasificacion, duracion, idioma);
     }
 
     private void deletemovie(String titulo) {
@@ -50,4 +52,13 @@ public class Administrador extends Usuario {
     private void adminDeleteFuncion(int id) {
         Funcion.deleteFuncion(id);
     }
+    public static void setMenu(MenuDeConsola m){
+        menu = m;
+    }
+
+    public static MenuDeConsola getMenu() {
+        return menu;
+    }
+    
+    
 }
