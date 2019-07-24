@@ -35,17 +35,6 @@ public class Cuenta {
             writeTxt("cuentas.txt", cuentasList);
         }
     }
-
-    public static void add_id(String user, String id){
-        String aux [] = new String [cuentasList.get(user).length+1];
-        for (int i=0; i<cuentasList.get(user).length+1; i++){
-            aux[i] = cuentasList.get(user)[i];
-            if (i==cuentasList.get(user).length){
-                aux[i]=id;
-            }
-        }
-        cuentasList.put(user, aux);
-    }
     
     public Cliente getPropietario() {
         return propietario;

@@ -52,7 +52,6 @@ public class Boleta {
         this.idBoleta = mayorId + 1;
         String[] valor = {dueño.getPropietario().getUsuario(), Integer.toString(funcion.getIdFuncion()), silla.getPosicion(), Integer.toString(this.precio)};
         boletasList.put(Integer.toString(idBoleta), valor);
-        Cuenta.add_id(dueño.getPropietario().getUsuario(),Integer.toString(this.idBoleta));
         writeTxt("cuentas.txt", cuentasList);
         silla.setOcupada(true);
     }
