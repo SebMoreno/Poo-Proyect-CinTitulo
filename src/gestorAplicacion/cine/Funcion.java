@@ -65,8 +65,11 @@ public class Funcion {
         return sillasOcupadas;
     }
 
-    public void setSillasOcupadas(Short sillasOcupadas) {
+    public void setSillasOcupadas(Short sillasOcupadas) { // key: idFuncion     value: idSala, tituloPelicula, hora, sillasOcupadas
         this.sillasOcupadas = sillasOcupadas;
+        String[] aux = funcionesList.get(Integer.toString(idFuncion));
+        aux[3] = Short.toString(sillasOcupadas);
+        funcionesList.put(Integer.toString(idFuncion), aux);
     }
 
     public Pelicula getPelicula() {
