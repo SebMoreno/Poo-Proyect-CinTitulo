@@ -5,10 +5,7 @@ import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Usuario;
 import java.util.Scanner;
 
-/**
- *
- * @author SebMoreno
- */
+//clase que registra usuarios invitador
 public class Registrarse extends OpcionDeMenu {
 
     private final String titulomenu = "Registrarse";
@@ -18,7 +15,7 @@ public class Registrarse extends OpcionDeMenu {
     }
 
     @Override
-    public void ejecutar() {
+    public void ejecutar() {//pide los datos al usuario para tener los parametros para llamar al construtor , dependiendo el rol que ingrese llama al constructor de cliente o de administrador
         Usuario nuevo;
         Scanner scan = new Scanner(System.in);
         System.out.print("Ingrese un usuario: ");
@@ -43,7 +40,7 @@ public class Registrarse extends OpcionDeMenu {
         String nombre = scan.next();
 
         if (rol.equals("cliente")) {
-            nuevo = new Cliente(usuario, password, nombre, email, false);
+            nuevo = new Cliente(usuario, password, nombre, email, false);//boolean existe en false para que se pueda guardar en el txt
             Main.menu = Cliente.getMenu();
         } else {
             nuevo = new Administrador(usuario, password, nombre, email, false);

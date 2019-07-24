@@ -5,13 +5,13 @@ import static baseDeDatos.Data.writeTxt;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Cuenta;
 import java.util.Scanner;
-
+//clase que solo pueden acceder usuarios cliente 
 public class RecargarSaldo extends OpcionDeMenu {
 
     private final String titulomenu = "Recargar Saldo";
 
     @Override
-    public void ejecutar() {
+    public void ejecutar() {//suma el saldo nuevo al anterior  editandolo en el hashmap y posteriormente escribiendolo en el txt
         Scanner scan = new Scanner(System.in);
         String nick = Main.usuarioActivo.getUsuario();
         Cliente cliente = (Cliente) Main.usuarioActivo;
