@@ -4,7 +4,8 @@ import static baseDeDatos.Data.readTxt;
 import static baseDeDatos.Data.writeTxt;
 import java.util.HashMap;
 import java.util.Map;
-
+//Clase con las funciones del cinema , necesario para la compra de boletas
+//ESTRUCTURAS:HashMap<String, String[]> funcionesList,
 public class Funcion {
 
     private Sala sala;
@@ -18,7 +19,7 @@ public class Funcion {
         readTxt("funciones.txt", funcionesList);
     }
 
-    public Funcion(String idFuncion) {//Constructor para crear objetos que ya estan en los Txt
+    public Funcion(String idFuncion) {//Constructor para crear objetos que ya estan en los Txt, dado que se necesite para llamar algo metodo
         sala = new Sala(funcionesList.get(idFuncion)[0]);
         pelicula = new Pelicula(funcionesList.get(idFuncion)[1]);
         hora = funcionesList.get(idFuncion)[2];
@@ -27,7 +28,7 @@ public class Funcion {
 
     }
 
-    public Funcion(Sala sala, String hora, Pelicula pelicula) {
+    public Funcion(Sala sala, String hora, Pelicula pelicula) {//crear objetos que si se quieren guardar en el txt
         this.sala = sala;
         this.hora = hora;
         this.pelicula = pelicula;
@@ -84,7 +85,7 @@ public class Funcion {
         return funcionesList;
     }
 
-    public static void deleteFuncion(int id) {
+    public static void deleteFuncion(int id) {//El administrador puede hacer esto , entonces la remueve de el hashmap y en esa opcion de menu(en el ui main)vuelve a escribir el archivo
         if (funcionesList.containsKey(id)) {
             funcionesList.remove(id);
             System.out.println("La función ha sido eliminada exitosamente.");
