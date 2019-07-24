@@ -14,6 +14,9 @@ import gestorAplicacion.cine.Sala;
 import gestorAplicacion.cine.Silla;
 import gestorAplicacion.cine.Boleta;
 
+//clase padre de todos los usuarios , aqui esta el constructor de todos y es necesaria para el funcionamiento de todo el programa
+//ESTRUCTURA: HashMap<String, String[]> usersList (guardar informacion usuarios)
+
 public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo que puede hacer un usuario
 
     private Scanner scan = new Scanner(System.in);
@@ -24,11 +27,11 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
     private String email;
     private static HashMap<String, String[]> usersList = new HashMap<>(); // key: usuario    value: clave, rol, nombre, email
 
-    public static void RT() {
+    public static void RT() {//metodo para leer la informacion del txt , presente en todas las clases que se guardan en un txt
         readTxt("usuarios.txt", usersList);
     }
 
-    protected Usuario(String usuario, String clave, String rol, String nombre, String email, boolean existe) {
+    protected Usuario(String usuario, String clave, String rol, String nombre, String email, boolean existe) {//cosntructor usuarios que se necesitan para acceder a metodos
         this.clave = clave;
         this.rol = rol;
         this.nombre = nombre;
