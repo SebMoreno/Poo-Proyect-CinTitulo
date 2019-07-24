@@ -38,8 +38,12 @@ public class Cuenta {
 
     public static void add_id(String user, String id){
         String aux [] = new String [cuentasList.get(user).length+1];
-        aux = cuentasList.get(user);
-        aux[cuentasList.get(user).length+1] = id;
+        for (int i=0; i<cuentasList.get(user).length+1; i++){
+            aux[i] = cuentasList.get(user)[i];
+            if (i==cuentasList.get(user).length){
+                aux[i]=id;
+            }
+        }
         cuentasList.put(user, aux);
     }
     
