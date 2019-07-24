@@ -5,7 +5,8 @@ import static baseDeDatos.Data.writeTxt;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+//clase encarga de crear las salas , necesaria para las clases funciones y sillas , tambien necesaria para comprar boletas
+//ESSTRUCTRAS:HashMap<String, String[]> salasList (guardar los datos en el txt), Silla[][] sillas(como esta arreglada la sala)
 public class Sala {
 
     private final int idSala;
@@ -15,7 +16,7 @@ public class Sala {
     final Silla[][] sillas;
     private final static HashMap<String, String[]> salasList = new HashMap<>(); // key: idSala     value: precio, tipo, capacidad, tamañoV, tamañoH, idSilla[0][0], idSilla [0][1], ... , idSilla[n][n]
 
-    public static void RT() {
+    public static void RT() {//cada clase que tiene informacion en un archivo txt tiene este metodo para leer el respectivo archivoy guardarlo en su hashmap
         readTxt("salas.txt", salasList);
     }
 
@@ -32,7 +33,7 @@ public class Sala {
         }
     }
 
-    public Sala(String tipo, int tamañoVertical, int tamañoHorizontal, int filasVibrosound, int filasPreferencial) {
+    public Sala(String tipo, int tamañoVertical, int tamañoHorizontal, int filasVibrosound, int filasPreferencial) {//constructor para guardar en el txt, depende del tipo de la sala cambia el precio
         this.sillas = crearMatrizSillas(tamañoVertical, tamañoHorizontal, filasVibrosound, filasPreferencial);
         this.capacidad = tamañoVertical * tamañoHorizontal;
         /*Se le asigna un ID nuevo a la sala*/
@@ -77,7 +78,7 @@ public class Sala {
         for (i = 0; i < sillas.length; i++) {
             for (int j = 0; j < sillas[0].length; j++) {
                 if (sillas[i][j] == null) {
-                    valor.add("NA");/*Revisar papi*/
+                    valor.add("NA");
                 } else {
                     valor.add(Integer.toString(sillas[i][j].getIdSilla()));
                 }
@@ -94,26 +95,27 @@ public class Sala {
         writeTxt("salas.txt", salasList);
     }
 
-    private Silla[][] crearMatrizSillas(int tamañoVertical, int tamañoHorizontal, int filasVibrosound, int filasPreferencial) {
+    private Silla[][] crearMatrizSillas(int tamañoVertical, int tamañoHorizontal, int filasVibrosound, int filasPreferencial) {//crea las matrices de silla y devuelve es matriz
         Silla[][] s = new Silla[tamañoVertical][tamañoHorizontal];
         int val = filasVibrosound - filasPreferencial;
         if (val > 0) {
-            for (int i = 0; i < filasPreferencial; i++) {
+            for (int i = 0; i < filasPreferencial; i++) {//entonces la silla que esta en esa posicion es vibrasound, es preferencial y no esta ocupada
                 for (int j = 0; j < tamañoHorizontal; j++) {
                     s[i][j] = new Silla(this, i, j, true, true, false);
                 }
             }
-            for (int i = filasPreferencial; i < filasVibrosound; i++) {
+            for (int i = filasPreferencial; i < filasVibrosound; i++) {//sillas orefenciales y no vibrasound
                 for (int j = 0; j < tamañoHorizontal; j++) {
                     s[i][j] = new Silla(this, i, j, true, false, false);
                 }
             }
-            for (int i = filasVibrosound; i < tamañoVertical; i++) {
+            for (int i = filasVibrosound; i < tamañoVertical; i++) {//sillas normales
                 for (int j = 0; j < tamañoHorizontal; j++) {
                     s[i][j] = new Silla(this, i, j, false, false, false);
                 }
             }
-        } else {
+        } else {//lo mismo pero teniendo en cuenta vibrasound(ya que es el mayor valor)
+            
             for (int i = 0; i < filasVibrosound; i++) {
                 for (int j = 0; j < tamañoHorizontal; j++) {
                     s[i][j] = new Silla(this, i, j, true, true, false);
