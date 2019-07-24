@@ -1,7 +1,7 @@
 package uiMain;
 
 import java.util.Map;
-
+//opcion informacion funciones disponible para todos los usuarios
 public class InformacionFunciones extends OpcionDeMenu {
 
     private final String titulomenu = "Mostrar listado de funciones";
@@ -12,11 +12,11 @@ public class InformacionFunciones extends OpcionDeMenu {
     }
 
     @Override
-    public void ejecutar() {
+    public void ejecutar() {//accede al hash he imprime todas las keys y values(recordar que los values de nuestros hash map son arreglos)
         imprimirFunciones();
     }
 
-    static void imprimirFunciones() {
+    static void imprimirFunciones() {//metodo interesante , lo que esa es imprimir las funciones
         System.out.println("//////////////////Lista de las funciones//////////////////");
         if (!gestorAplicacion.cine.Funcion.getFuncionesList().isEmpty()) {
             for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Funcion.getFuncionesList().entrySet()) {

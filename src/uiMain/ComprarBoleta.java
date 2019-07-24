@@ -67,6 +67,9 @@ public class ComprarBoleta extends OpcionDeMenu {
             int saldo_nuevo = cliente.getCuenta().getSaldo() - precioBoleta;
             cliente.getCuenta().setSaldo(saldo_nuevo);
             Data.writeTxt("cuentas.txt", Cuenta.getCuentasList());
+            short ocupadas = F.getSillasOcupadas();
+            ocupadas++;
+            F.setSillasOcupadas(ocupadas);
             System.out.println("Su compra fue realizada con éxito");
         } else {
             System.out.println("Saldo insuficiente");
