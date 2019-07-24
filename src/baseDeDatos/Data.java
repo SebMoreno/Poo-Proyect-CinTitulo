@@ -34,7 +34,7 @@ public class Data {
     static private void god_menu_birth() {
         menu_generico.put("iniciar sesion", new IniciarSesion());
         menu_generico.put("informacion pelicula", new Informacionpelicula());
-        menu_generico.put("comprar pelicula", new ComprarBoleta());
+        menu_generico.put("comprar boleta", new ComprarBoleta());
         menu_generico.put("ver informacion cuenta", new InformacionCuenta("Ver Informacion Cuenta"));
         menu_generico.put("actualizar saldo", new RecargarSaldo("Recargar Saldo"));
         menu_generico.put("registrarse", new Registrarse());
@@ -54,6 +54,7 @@ public class Data {
         options.add(menu_generico.get("iniciar sesion"));
         options.add(menu_generico.get("registrarse"));
         options.add(menu_generico.get("iniciar como invitado"));
+        options.add(menu_generico.get("comprar boleta"));
         options.add(menu_generico.get("terminar programa"));
         menuInicial = new MenuDeConsola(options);
     }

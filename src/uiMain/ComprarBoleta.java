@@ -18,7 +18,7 @@ public class ComprarBoleta extends OpcionDeMenu {
     @Override
     public void ejecutar() {
         System.out.println("Escoja una pelicula\nEscribe el titulo de la pelicula exactamente como aparece");
-        imprimirPeliculas();
+        Informacionpelicula.imprimirPeliculas();
         Scanner entrada = new Scanner(System.in);
         String titulo = entrada.next();
         System.out.println("Seleccione el numero de la funcion deseada");
@@ -62,9 +62,5 @@ public class ComprarBoleta extends OpcionDeMenu {
     @Override
     public String toString() {
         return titulomenu;
-    }
-
-    private void imprimirPeliculas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
