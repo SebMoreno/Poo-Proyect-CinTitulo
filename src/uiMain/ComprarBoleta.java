@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ComprarBoleta extends OpcionDeMenu {
 
-    private String titulomenu;
+    private String titulomenu = "Comprar Boleta";
     private String titulopelicula;
     private ArrayList<String> funciones = new ArrayList<String>();
     private ArrayList<String> peliculas = new ArrayList<String>();

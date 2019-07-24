@@ -9,13 +9,12 @@ public class InformacionCuenta extends OpcionDeMenu {
     }
     @Override
     public void ejecutar() {
-
-        for (Map.Entry<String, String[]> entry : gestorAplicacion.usuario.Usuario.getUsersList().entrySet()) {
-                System.out.println("            " + entry.getKey() + "          ");
-                System.out.println("Usuario: " + entry.getValue()[0] + "         " + "clave: " + entry.getValue()[1]);
-                System.out.println("rol: " + entry.getValue()[2] + "           " + "nombre: " + entry.getValue()[3]);
-                System.out.println("e-mail: " + entry.getValue()[4]);
-            }
+        String nick = Main.usuarioActivo.getUsuario();
+        System.out.println("            " + Main.usuarioActivo.getNombre() + "          ");
+        System.out.println("Usuario: " + nick + "         " + "Saldo: " + gestorAplicacion.usuario.Cuenta.getCuentasList().get(nick)[0]);
+        for (int i=1; i<gestorAplicacion.usuario.Cuenta.getCuentasList().get(nick).length; i++){
+            System.out.println("Boleta con ID: " + gestorAplicacion.usuario.Cuenta.getCuentasList().get(nick)[i]);
+        }
 
     }
     @Override

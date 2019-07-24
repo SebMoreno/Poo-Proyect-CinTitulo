@@ -1,5 +1,6 @@
 package uiMain;
 import baseDeDatos.Data;
+import gestorAplicacion.usuario.Invitado;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,9 +19,7 @@ public class IniciarComoInvitado extends OpcionDeMenu {
     
     @Override
     public void ejecutar() {
-        menu_guest.lanzarMenu();
-        int option = input.nextInt();
-        array_o.get(option-1).ejecutar();
+        Main.menu = Invitado.getMenu();
     }
 
     @Override

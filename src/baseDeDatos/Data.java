@@ -35,7 +35,6 @@ public class Data {
         menu_generico.put("iniciar sesion", new IniciarSesion());
         menu_generico.put("informacion pelicula", new Informacionpelicula());
         menu_generico.put("comprar pelicula", new ComprarBoleta());
-        menu_generico.put("reservar pelicula", new ReservarBoleta("Reservar Boleta"));
         menu_generico.put("ver informacion cuenta", new InformacionCuenta("Ver Informacion Cuenta"));
         menu_generico.put("actualizar saldo", new RecargarSaldo("Recargar Saldo"));
         menu_generico.put("registrarse", new Registrarse());
@@ -43,6 +42,11 @@ public class Data {
         menu_generico.put("editar pelicula", new EditarPelicula("Editar Pelicula"));
         menu_generico.put("iniciar como invitado", new IniciarComoInvitado("Iniciar Como Invitado"));
         menu_generico.put("terminar programa", new Salir());
+        menu_generico.put("añadir pelicula", new AñadirPelicula());
+        menu_generico.put("eliminar pelicula", new EliminarPelicula());
+        menu_generico.put("crear funcion", new CrearFuncion());
+        menu_generico.put("eliminar funcion", new EliminarFuncion());
+        menu_generico.put("informacion funciones", new InformacionFunciones());
     }
 
     static private void menuInicial() {
@@ -68,10 +72,10 @@ public class Data {
 
         ArrayList<OpcionDeMenu> options = new ArrayList<>();
         options.add(Data.menu_generico.get("informacion pelicula"));
-        options.add(Data.menu_generico.get("comprar boleta"));
-        options.add(Data.menu_generico.get("reservar boleta"));
+        options.add(Data.menu_generico.get("informacion funciones"));
+        options.add(Data.menu_generico.get("comprar pelicula"));
         options.add(Data.menu_generico.get("ver informacion cuenta"));
-        options.add(Data.menu_generico.get("recargar"));
+        options.add(Data.menu_generico.get("actualizar saldo"));
         options.add(Data.menu_generico.get("terminar programa"));
         Cliente.setMenu(new MenuDeConsola(options));
 
