@@ -1,2 +1,2 @@
-cli 60000
+cliente01 60000
 cliente02 0
