@@ -3,13 +3,13 @@ package uiMain;
 import baseDeDatos.Data;
 import gestorAplicacion.cine.Funcion;
 import java.util.Scanner;
-
+//opcion de menu para eliminarfuncion (es unica de administrador)
 public class EliminarFuncion extends OpcionDeMenu {
 
     private String titulomenu = "Eliminar Funcion";
     
     @Override
-    public void ejecutar() {
+    public void ejecutar() {//elimina la funcion del hash he invoca al write para escribir nuevamente en el txt
         Scanner esc = new Scanner(System.in);
         InformacionFunciones.imprimirFunciones();
         System.out.println("Ingrese SOLO el numero de la funcion a eliminar");        
