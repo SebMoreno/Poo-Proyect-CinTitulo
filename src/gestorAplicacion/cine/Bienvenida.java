@@ -9,6 +9,6 @@ package gestorAplicacion.cine;
  *
  * @author Usuario
  */
-public interface Bienvanida {
+public interface Bienvenida {
     public void saludo();
 }

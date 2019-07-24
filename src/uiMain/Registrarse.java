@@ -1,13 +1,13 @@
 package uiMain;
 
-import gestorAplicacion.cine.Bienvanida;
 import gestorAplicacion.usuario.Administrador;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Usuario;
 import java.util.Scanner;
+import gestorAplicacion.cine.Bienvenida;
 
 //clase que registra usuarios invitador
-public class Registrarse extends OpcionDeMenu implements Bienvanida {
+public class Registrarse extends OpcionDeMenu implements Bienvenida {
 
     private final String titulomenu = "Registrarse";
 
