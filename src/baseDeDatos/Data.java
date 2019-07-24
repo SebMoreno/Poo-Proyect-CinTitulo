@@ -32,21 +32,19 @@ public class Data {
     }
 
     static private void god_menu_birth() {
-        menu_generico.put("iniciar sesion", new IniciarSesion());
-        menu_generico.put("informacion pelicula", new Informacionpelicula());
+        menu_generico.put("iniciar sesion", new IniciarSesion());        
         menu_generico.put("comprar boleta", new ComprarBoleta());
-        menu_generico.put("ver informacion cuenta", new InformacionCuenta("Ver Informacion Cuenta"));
-        menu_generico.put("actualizar saldo", new RecargarSaldo("Recargar Saldo"));
+        menu_generico.put("recargar saldo", new RecargarSaldo());
         menu_generico.put("registrarse", new Registrarse());
-        menu_generico.put("actualizar menu", new ActualizarMenu("Actualizar Menu"));
-        menu_generico.put("editar pelicula", new EditarPelicula("Editar Pelicula"));
         menu_generico.put("iniciar como invitado", new IniciarComoInvitado());
         menu_generico.put("terminar programa", new Salir());
         menu_generico.put("añadir pelicula", new AñadirPelicula());
         menu_generico.put("eliminar pelicula", new EliminarPelicula());
         menu_generico.put("crear funcion", new CrearFuncion());
         menu_generico.put("eliminar funcion", new EliminarFuncion());
+        menu_generico.put("informacion pelicula", new Informacionpelicula());
         menu_generico.put("informacion funciones", new InformacionFunciones());
+        menu_generico.put("informacion cuenta", new InformacionCuenta());
     }
 
     static private void menuInicial() {
@@ -60,6 +58,8 @@ public class Data {
 
     static private void menuAdmin() {
         ArrayList<OpcionDeMenu> options = new ArrayList<>();
+        options.add(menu_generico.get("informacion pelicula"));
+        options.add(menu_generico.get("informacion funciones"));
         options.add(menu_generico.get("añadir pelicula"));
         options.add(menu_generico.get("eliminar pelicula"));
         options.add(menu_generico.get("crear funcion"));
@@ -71,21 +71,21 @@ public class Data {
     static private void menuCliente() {
 
         ArrayList<OpcionDeMenu> options = new ArrayList<>();
-        options.add(Data.menu_generico.get("informacion pelicula"));
-        options.add(Data.menu_generico.get("informacion funciones"));
-        options.add(Data.menu_generico.get("comprar boleta"));
-        options.add(Data.menu_generico.get("ver informacion cuenta"));
-        options.add(Data.menu_generico.get("actualizar saldo"));
-        options.add(Data.menu_generico.get("terminar programa"));
+        options.add(menu_generico.get("informacion pelicula"));
+        options.add(menu_generico.get("informacion funciones"));
+        options.add(menu_generico.get("comprar boleta"));
+        options.add(menu_generico.get("informacion cuenta"));
+        options.add(menu_generico.get("recargar saldo"));
+        options.add(menu_generico.get("terminar programa"));
         Cliente.setMenu(new MenuDeConsola(options));
 
     }
     static private void menuInvitado(){
         ArrayList<OpcionDeMenu> options = new ArrayList<>();
-        options.add(Data.menu_generico.get("registrarse"));
-        options.add(Data.menu_generico.get("informacion pelicula"));
-        options.add(Data.menu_generico.get("informacion funciones"));
-        options.add(Data.menu_generico.get("terminar programa"));       
+        options.add(menu_generico.get("registrarse"));
+        options.add(menu_generico.get("informacion pelicula"));
+        options.add(menu_generico.get("informacion funciones"));
+        options.add(menu_generico.get("terminar programa"));       
         Invitado.setMenu(new MenuDeConsola(options));
     }
 
