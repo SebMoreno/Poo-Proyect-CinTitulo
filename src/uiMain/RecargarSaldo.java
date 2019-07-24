@@ -1,4 +1,5 @@
 package uiMain;
+import baseDeDatos.Data;
 import static baseDeDatos.Data.readTxt;
 import static baseDeDatos.Data.writeTxt;
 import java.util.Scanner;
@@ -14,24 +15,17 @@ public class RecargarSaldo extends OpcionDeMenu {
     }
     
     public void ejecutar(){
-    /*    
-    String nombre =uiMain.IniciarSesion.getUsuarioActivo();
-    System.out.println("Ingrese su recarga");
-    int recarga= scan.nextInt();
-    while(recarga<=0){
-        System.out.println("Ingrese un valor valido para su recarga, impedido");
-        recarga=scan.nextInt();
-    }
-    int original= Integer.parseInt(gestorAplicacion.usuario.Cuenta.getCuentasList().get(nombre) [0]);
-    
-    String Recarga = Integer.toString(recarga+original);
-    gestorAplicacion.usuario.Cuenta.getCuentasList().get(nombre) [0] = Recarga;
-    System.out.println("Recarga exitosa");
-    writeTxt("cuentas.txt", gestorAplicacion.usuario.Cuenta.getCuentasList());
-    
-    
-    
-      */  
+        String user = Main.usuarioActivo.getUsuario();
+        System.out.println("Ingrese Saldo A Recargar");
+        int saldo_plus = scan.nextInt();
+        while(saldo_plus<=0){
+            System.out.println("Ingrese Saldo válido");
+            saldo_plus = scan.nextInt();
+        }
+        String [] aux = gestorAplicacion.usuario.Cuenta.getCuentasList().get(user);
+        aux[0] = Integer.toString(Integer.valueOf(aux[0]) + saldo_plus);
+        gestorAplicacion.usuario.Cuenta.getCuentasList().put(user,aux);
+        Data.writeTxt("Cuenta.txt", gestorAplicacion.usuario.Cuenta.getCuentasList());
     }
     
     public String toString(){
