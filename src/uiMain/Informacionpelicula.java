@@ -1,7 +1,7 @@
 package uiMain;
 
 import java.util.*;
-
+//opcion informacion pelicula disponible para todos los usuarios
 public class Informacionpelicula extends OpcionDeMenu {
 
     private final String titulomenu = "Mostrar listado de películas";
@@ -17,7 +17,7 @@ public class Informacionpelicula extends OpcionDeMenu {
 
     }
 
-    static void imprimirPeliculas() {
+    static void imprimirPeliculas() {//accede al hash he imprime todas las keys y values(recordar que los values de nuestros hash map son arreglos)
         System.out.println("//////////////////Lista de las películas//////////////////");
         if (!gestorAplicacion.cine.Pelicula.getPelisList().isEmpty()) {
             for (Map.Entry<String, String[]> entry : gestorAplicacion.cine.Pelicula.getPelisList().entrySet()) {
