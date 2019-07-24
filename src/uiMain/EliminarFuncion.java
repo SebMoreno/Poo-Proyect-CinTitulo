@@ -15,7 +15,7 @@ public class EliminarFuncion extends OpcionDeMenu {
         InformacionFunciones.imprimirFunciones();
         System.out.println("Ingrese SOLO el numero de la funcion a eliminar");        
         String idFuncion = esc.next();
-        gestorAplicacion.cine.Pelicula.getPelisList().remove(idFuncion);
+        gestorAplicacion.cine.Funcion.getFuncionesList().remove(idFuncion);
         Data.writeTxt("funciones.txt", gestorAplicacion.cine.Funcion.getFuncionesList());
         System.out.println("¡Funcion eliminada con exito!");
     }
