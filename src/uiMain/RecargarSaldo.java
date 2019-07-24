@@ -1,6 +1,7 @@
 package uiMain;
 
 import baseDeDatos.Data;
+import static baseDeDatos.Data.writeTxt;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Cuenta;
 import java.util.Scanner;
@@ -21,8 +22,8 @@ public class RecargarSaldo extends OpcionDeMenu {
             System.out.print("Ingrese Saldo válido: ");
             saldo = scan.nextInt();
         }
-        cliente.getCuenta().setSaldo(saldo);
-        Data.writeTxt("cuentas.txt", Cuenta.getCuentasList());
+        cliente.getCuenta().setSaldo(cliente.getCuenta().getSaldo() + saldo);
+        writeTxt("cuentas.txt", Cuenta.getCuentasList());
         System.out.println("Saldo actualizado correctamente");
     }
 
