@@ -4,7 +4,7 @@ import gestorAplicacion.usuario.Administrador;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Usuario;
 import java.util.Scanner;
-
+//clase necearia para poder acceder al menu de usuario cliente o usuario administrador
 public class IniciarSesion extends OpcionDeMenu {
 
     private final String titulomenu = "Iniciar Sesion";
@@ -16,7 +16,7 @@ public class IniciarSesion extends OpcionDeMenu {
         return titulomenu;
     }
 
-    public void ejecutar() {
+    public void ejecutar() {//cada vez que entra le asigna su menu correspondiente y por medio de whiles verifican si esta dentro del txt de usuarios
         Usuario nuevo;
         Scanner scan = new Scanner(System.in);
         System.out.print("Ingrese su usuario: ");
