@@ -10,7 +10,7 @@
 <project name="Poo-Proyect-CinTitulo1" default="default" basedir=".">
     <description>Builds, tests, and runs the project Poo-Proyect-CinTitulo1.</description>
     <import file="nbproject/build-impl.xml"/>
-    
+
     <target name="-post-jar">
         <echo file="${dist.dir}/run.bat">java -jar ${application.title}.jar</echo>
     </target>

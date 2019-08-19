@@ -5,16 +5,16 @@ import gestorAplicacion.usuario.Usuario;
 
 public class Main {
 
-    static public Usuario usuarioActivo;
-    static public MenuDeConsola menu;
+	static public Usuario usuarioActivo;
+	static public MenuDeConsola menu;
 
-    public static void main(String[] args) {
-        
-        Data.initConfig();
-        while (true) {
-            menu.lanzarMenu();
-        }
-        
-    }
+	public static void main(String[] args) {
+
+		Data.initConfig();
+		while (true) {
+			menu.lanzarMenu();
+		}
+
+	}
 
 }

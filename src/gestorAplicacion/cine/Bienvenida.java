@@ -6,9 +6,8 @@
 package gestorAplicacion.cine;
 
 /**
- *
  * @author Usuario
  */
 public interface Bienvenida {
-    public void saludo();
+	public void saludo();
 }
