@@ -13,7 +13,6 @@ import static baseDeDatos.Data.writeTxt;
 import static gestorAplicacion.usuario.Cuenta.cuentasList;
 //Esta clase crea las boletas que se general cuando se compra , esta guardada tambien en la cuenta de su respectivo usuario
 //ESTRUCTURAS:HashMap<String, String[]> boletasList(para registro de las boletas),
-
 public class Boleta {
 
 	private final static HashMap<String, String[]> boletasList = new HashMap<>(); // key: idBoleta     value: usuario, idFuncion, posicionSilla, precio
@@ -68,6 +67,7 @@ public class Boleta {
 	public static void RT() {
 		readTxt("boletas.txt", boletasList);
 	}
+
 
 	public static HashMap<String, String[]> getBoletasList() {
 		return boletasList;
