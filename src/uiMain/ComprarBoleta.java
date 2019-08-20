@@ -5,7 +5,6 @@ import gestorAplicacion.cine.Boleta;
 import gestorAplicacion.cine.Funcion;
 import gestorAplicacion.usuario.Cliente;
 import gestorAplicacion.usuario.Cuenta;
-
 import java.util.Map;
 import java.util.Scanner;
 

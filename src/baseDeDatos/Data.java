@@ -1,10 +1,12 @@
 //en este paquete esta toda la capa de persistencia y menu del programa (autores  :Cristian mejia , Sebastian Moreno)
 package baseDeDatos;
 
+
 import gestorAplicacion.cine.*;
 import gestorAplicacion.usuario.*;
 import uiMain.*;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -100,7 +102,7 @@ public class Data {
 	}
 
 	public static void writeTxt(String archivo, HashMap<String, String[]> lista) {//metodo para escribir los archivos , utiliza un hashmap para el acceso de los valores dentro del programa
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/temp/" + archivo));) {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/temp/" + archivo))) {
 			for (Map.Entry<String, String[]> entry : lista.entrySet()) {
 				bw.write(entry.getKey());
 				for (String value : entry.getValue()) {
@@ -117,7 +119,7 @@ public class Data {
 	}
 
 	public static void readTxt(String archivo, HashMap<String, String[]> lista) {//lee linea por linea el txt y lo guarda en el arreglo datos, luego utuliza aux como value del hash y el primer indice de datos com key
-		try (BufferedReader br = new BufferedReader(new FileReader("src/temp/" + archivo));) {
+		try (BufferedReader br = new BufferedReader(new FileReader("src/temp/" + archivo))) {
 			String line = br.readLine();
 
 			while (line != null) {

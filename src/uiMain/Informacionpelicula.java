@@ -1,5 +1,7 @@
 package uiMain;
 
+import java.util.Map;
+
 //opcion informacion pelicula disponible para todos los usuarios
 public class Informacionpelicula extends OpcionDeMenu {
 
