@@ -7,13 +7,9 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="Poo-Proyect-CinTitulo1" default="default" basedir=".">
-    <description>Builds, tests, and runs the project Poo-Proyect-CinTitulo1.</description>
+<project name="Ejemplo_Menu" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Ejemplo Menu.</description>
     <import file="nbproject/build-impl.xml"/>
-
-    <target name="-post-jar">
-        <echo file="${dist.dir}/run.bat">java -jar ${application.title}.jar</echo>
-    </target>
     <!--
 
     There exist several targets which are by default empty and which can be 
@@ -62,7 +58,7 @@
 
     An example of overriding the target for project execution could look like this:
 
-        <target name="run" depends="Poo-Proyect-CinTitulo1-impl.jar">
+        <target name="run" depends="Ejemplo_Menu-impl.jar">
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>
