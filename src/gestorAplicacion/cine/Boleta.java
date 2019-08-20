@@ -68,7 +68,6 @@ public class Boleta {
 		readTxt("boletas.txt", boletasList);
 	}
 
-
 	public static HashMap<String, String[]> getBoletasList() {
 		return boletasList;
 	}
