@@ -1,13 +1,13 @@
 /* en este paquete se maneja todas las clses con respecto al cine (Autores : todo el equipo) */
-package model.cine;
+package gestorAplicacion.cine;
 
 
+import baseDeDatos.Data;
+import gestorAplicacion.usuario.Cliente;
+import gestorAplicacion.usuario.Cuenta;
+import gestorAplicacion.usuario.Usuario;
 import java.util.HashMap;
 import java.util.Map;
-import model.database.Data;
-import model.user.Cliente;
-import model.user.Cuenta;
-import model.user.Usuario;
 
 //Esta clase crea las boletas que se general cuando se compra , esta guardada tambien en la cuenta de su respectivo usuario
 //ESTRUCTURAS:HashMap<String, String[]> boletasList(para registro de las boletas),

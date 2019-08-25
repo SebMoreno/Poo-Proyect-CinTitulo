@@ -1,10 +1,10 @@
-package model.user;
+package gestorAplicacion.usuario;
 
+import static baseDeDatos.Data.readTxt;
+import static baseDeDatos.Data.writeTxt;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static model.database.Data.readTxt;
-import static model.database.Data.writeTxt;
 
 public class Cuenta {
 

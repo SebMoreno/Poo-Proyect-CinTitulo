@@ -156,11 +156,4 @@ public abstract class Usuario {//esta sera mi super clase por eso tiene todo lo 
 		Boleta nuevo = new Boleta(dueño, funcion, silla);
 	}
 
-	private void getDueño(Boleta boleta) {
-		boleta.getDueño();
-	}
-
-	private void getFuncion(Boleta boleta) {
-		boleta.getDueño();
-	}
 }
